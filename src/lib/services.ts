@@ -1,19 +1,8 @@
-import {
-  Server,
-  Globe,
-  Cable,
-  Cpu,
-  ShieldCheck,
-  Camera,
-  type LucideIcon,
-} from "lucide-react";
-
 export interface ServiceConfig {
   slug: string;
   title: string;
   tagline: string;
   description: string;
-  icon: LucideIcon;
   hero: string;
   features: { title: string; body: string }[];
   faq: { q: string; a: string }[];
@@ -27,7 +16,6 @@ export const SERVICES: ServiceConfig[] = [
     tagline: "Cloud compute & dedicated servers",
     description:
       "On-demand virtual machines and dedicated bare metal, provisioned in our Des Moines facility.",
-    icon: Server,
     hero:
       "Spin up compute in seconds or order dedicated bare metal tuned for your workload. KVM-backed VMs, NVMe storage, and 10G uplinks as standard.",
     features: [
@@ -48,7 +36,6 @@ export const SERVICES: ServiceConfig[] = [
     tagline: "ISP & dedicated transit",
     description:
       "Carrier-grade IP transit and dedicated internet access for businesses across central Iowa.",
-    icon: Globe,
     hero:
       "Multi-homed transit, BGP support, IPv4 + IPv6, and SLA-backed dedicated internet for businesses that can't tolerate downtime.",
     features: [
@@ -69,7 +56,6 @@ export const SERVICES: ServiceConfig[] = [
     tagline: "Rack space, cross-connects, power",
     description:
       "1U through full cabinet and cage colocation with metered or fixed power, redundant cooling, and direct cross-connects.",
-    icon: Cable,
     hero:
       "Quarter, half, full, and multi-cabinet deployments with redundant power, N+1 cooling, and a meet-me room with direct access to multiple carriers.",
     features: [
@@ -90,7 +76,6 @@ export const SERVICES: ServiceConfig[] = [
     tagline: "Repair, sourcing & custom builds",
     description:
       "Server hardware procurement, repair, and custom-built systems for compute-heavy workloads.",
-    icon: Cpu,
     hero:
       "Need a 4U GPU box yesterday? We source, build, test, and rack it. We also fix what you already have — board-level repair on enterprise gear.",
     features: [
@@ -111,7 +96,6 @@ export const SERVICES: ServiceConfig[] = [
     tagline: "Network security & monitoring",
     description:
       "Managed firewall, 24/7 monitoring, and incident response from an Iowa-based SOC.",
-    icon: ShieldCheck,
     hero:
       "Managed firewalls, IDS/IPS, log aggregation, and a real human on call. We watch the alerts so you don't have to.",
     features: [
@@ -132,7 +116,6 @@ export const SERVICES: ServiceConfig[] = [
     tagline: "Access control & surveillance",
     description:
       "Designed, installed, and monitored on-site security systems for facilities that matter.",
-    icon: Camera,
     hero:
       "Card and biometric access, IP camera systems, and 24/7 monitored alarm response — designed and installed end-to-end.",
     features: [
@@ -151,4 +134,8 @@ export const SERVICES: ServiceConfig[] = [
 
 export function getService(slug: string): ServiceConfig | undefined {
   return SERVICES.find((s) => s.slug === slug);
+}
+
+export function getServiceIndex(slug: string): number {
+  return SERVICES.findIndex((s) => s.slug === slug);
 }

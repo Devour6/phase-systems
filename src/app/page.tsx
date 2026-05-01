@@ -70,7 +70,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {SERVICES.map((s, i) => (
             <Reveal key={s.slug} delay={i * 60}>
-              <ServiceCard service={s} />
+              <ServiceCard service={s} index={i} />
             </Reveal>
           ))}
         </div>

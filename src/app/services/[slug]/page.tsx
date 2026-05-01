@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { SERVICES, getService } from "@/lib/services";
+import { SERVICES, getService, getServiceIndex } from "@/lib/services";
 import { Reveal } from "@/components/site/reveal";
 
 export function generateStaticParams() {
@@ -30,7 +30,7 @@ export default async function ServicePage({
   const service = getService(slug);
   if (!service) notFound();
 
-  const Icon = service.icon;
+  const num = String(getServiceIndex(slug) + 1).padStart(2, "0");
 
   return (
     <div className="mx-auto w-full max-w-5xl px-6 pt-20 pb-24">
@@ -44,21 +44,16 @@ export default async function ServicePage({
       </Reveal>
 
       <Reveal delay={80}>
-        <div className="mt-8 flex items-start gap-5">
+        <div className="mt-8">
           <div
-            className="flex h-12 w-12 items-center justify-center border border-border/80 shrink-0"
-            style={{ background: "rgba(124,255,168,0.08)" }}
+            className="font-mono text-[11px] tracking-[0.3em]"
+            style={{ color: "#7CFFA8" }}
           >
-            <Icon size={22} style={{ color: "#7CFFA8" }} />
+            {num} · {service.tagline}
           </div>
-          <div>
-            <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50">
-              {service.tagline}
-            </div>
-            <h1 className="font-display text-4xl md:text-6xl leading-[1.05] mt-2">
-              {service.title}
-            </h1>
-          </div>
+          <h1 className="font-display text-4xl md:text-6xl leading-[1.05] mt-3">
+            {service.title}
+          </h1>
         </div>
       </Reveal>
 

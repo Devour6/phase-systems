@@ -2,8 +2,14 @@ import Link from "next/link";
 import type { ServiceConfig } from "@/lib/services";
 import { ArrowUpRight } from "lucide-react";
 
-export function ServiceCard({ service }: { service: ServiceConfig }) {
-  const Icon = service.icon;
+export function ServiceCard({
+  service,
+  index,
+}: {
+  service: ServiceConfig;
+  index: number;
+}) {
+  const num = String(index + 1).padStart(2, "0");
   return (
     <Link
       href={`/services/${service.slug}`}
@@ -11,10 +17,10 @@ export function ServiceCard({ service }: { service: ServiceConfig }) {
     >
       <div className="flex items-start justify-between">
         <div
-          className="flex h-9 w-9 items-center justify-center border border-border/80"
-          style={{ background: "rgba(124,255,168,0.06)" }}
+          className="font-mono text-[11px] tracking-[0.3em]"
+          style={{ color: "#7CFFA8" }}
         >
-          <Icon size={18} style={{ color: "#7CFFA8" }} />
+          {num}
         </div>
         <ArrowUpRight
           size={16}
