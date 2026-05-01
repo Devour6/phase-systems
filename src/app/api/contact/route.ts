@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { kv } from "@vercel/kv";
+import { redis } from "@/lib/redis";
 
 interface ContactPayload {
   email?: string;
@@ -39,8 +39,8 @@ export async function POST(req: Request) {
   };
 
   try {
-    await kv.hset(`contact:${id}`, entry);
-    await kv.lpush("contact:queue", id);
+    await redis.hset(`contact:${id}`, entry);
+    await redis.lpush("contact:queue", id);
   } catch (err) {
     console.error("[contact] kv error:", err);
     if (process.env.NODE_ENV === "production") {

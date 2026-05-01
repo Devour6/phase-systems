@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { kv } from "@vercel/kv";
+import { redis } from "@/lib/redis";
 
 interface WaitlistPayload {
   email?: string;
@@ -35,8 +35,8 @@ export async function POST(req: Request) {
 
   // KV may be unconfigured locally — fail gracefully.
   try {
-    await kv.hset(`waitlist:${email}`, entry);
-    await kv.sadd("waitlist:emails", email);
+    await redis.hset(`waitlist:${email}`, entry);
+    await redis.sadd("waitlist:emails", email);
   } catch (err) {
     console.error("[waitlist] kv error:", err);
     // Still return success so users aren't blocked in dev — log shows the failure.
