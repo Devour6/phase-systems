@@ -4,7 +4,7 @@ import { Reveal } from "@/components/site/reveal";
 export const metadata = {
   title: "About — Phase Systems",
   description:
-    "Phase Systems is the data center vertical of Phase Labs, built in Des Moines, Iowa.",
+    "Phase Systems is the data center vertical of Phase, built in Des Moines, Iowa.",
 };
 
 const PILLARS = [
@@ -47,7 +47,7 @@ export default function AboutPage() {
       </Reveal>
       <Reveal delay={160}>
         <p className="mt-8 max-w-2xl text-lg text-foreground/75 leading-relaxed">
-          Phase Systems is the data center vertical of Phase Labs. We operate a
+          Phase Systems is the data center vertical of Phase. We operate a
           single, integrated stack — colocation, compute, network, hardware, and
           security — out of central Iowa, where the grid, climate, and fiber are
           built for the workloads of the next decade.
@@ -89,20 +89,20 @@ export default function AboutPage() {
               Parent Company
             </div>
             <h2 className="font-display text-2xl md:text-3xl mt-3">
-              A vertical of Phase Labs
+              A vertical of Phase
             </h2>
             <p className="mt-5 max-w-2xl text-foreground/75 leading-relaxed">
-              Phase Labs builds infrastructure across compute, finance, and
-              software. Phase Systems is the bare-metal arm — the steel and fiber
-              underneath everything else we ship.
+              Phase builds infrastructure across compute, finance, and software.
+              Phase Systems is the bare-metal arm — the steel and fiber underneath
+              everything else we ship.
             </p>
             <a
-              href="https://phaselabs.io"
+              href="https://phase.cc"
               target="_blank"
               rel="noreferrer"
               className="mt-6 inline-block font-mono text-xs uppercase tracking-widest text-[#7CFFA8] hover:underline"
             >
-              phaselabs.io ↗
+              phase.cc ↗
             </a>
           </div>
         </Reveal>

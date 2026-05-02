@@ -12,7 +12,7 @@ export function SiteFooter() {
             </span>
           </div>
           <p className="mt-3 text-sm text-foreground/60 max-w-sm">
-            Phase Systems is the data center vertical of Phase Labs. Built in Des Moines, Iowa
+            Phase Systems is the data center vertical of Phase. Built in Des Moines, Iowa
             for the next generation of compute.
           </p>
         </div>
@@ -39,12 +39,12 @@ export function SiteFooter() {
             <li><Link href="/contact" className="hover:text-[#7CFFA8]">Contact</Link></li>
             <li>
               <a
-                href="https://phaselabs.io"
+                href="https://phase.cc"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-[#7CFFA8]"
               >
-                Phase Labs ↗
+                Phase ↗
               </a>
             </li>
           </ul>

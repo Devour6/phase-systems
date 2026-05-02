@@ -1,6 +1,6 @@
 # Phase Systems
 
-Marketing site for **Phase Systems** — Phase Labs' data center vertical based in Des Moines, Iowa.
+Marketing site for **Phase Systems** — Phase's data center vertical based in Des Moines, Iowa.
 
 ## Stack
 
@@ -8,7 +8,7 @@ Marketing site for **Phase Systems** — Phase Labs' data center vertical based 
 - React 19
 - TypeScript
 - Tailwind v4 + shadcn/ui
-- `@vercel/kv` for waitlist + contact storage
+- `@upstash/redis` for waitlist + contact storage
 
 ## Brand
 
