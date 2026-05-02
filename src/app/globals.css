@@ -110,6 +110,15 @@
   box-shadow: 0 0 0 1px rgba(124, 255, 168, 0.12), 0 0 32px -12px rgba(124, 255, 168, 0.35);
 }
 
+/* Service row hover */
+.service-row {
+  transition: background-color 0.25s ease, padding-left 0.25s ease;
+}
+.service-row:hover {
+  background-color: rgba(124, 255, 168, 0.03);
+  padding-left: 1.25rem;
+}
+
 /* Scroll reveal */
 .reveal {
   opacity: 0;

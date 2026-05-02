@@ -15,7 +15,7 @@ export const SERVICES: ServiceConfig[] = [
     title: "Virtualization",
     tagline: "Cloud compute & dedicated servers",
     description:
-      "On-demand virtual machines and dedicated bare metal, provisioned in our Des Moines facility.",
+      "On-demand VMs and dedicated bare metal, provisioned in Des Moines.",
     hero:
       "Spin up compute in seconds or order dedicated bare metal tuned for your workload. KVM-backed VMs, NVMe storage, and 10G uplinks as standard.",
     features: [
@@ -35,7 +35,7 @@ export const SERVICES: ServiceConfig[] = [
     title: "Internet",
     tagline: "ISP & dedicated transit",
     description:
-      "Carrier-grade IP transit and dedicated internet access for businesses across central Iowa.",
+      "Carrier-grade IP transit and dedicated access across central Iowa.",
     hero:
       "Multi-homed transit, BGP support, IPv4 + IPv6, and SLA-backed dedicated internet for businesses that can't tolerate downtime.",
     features: [
@@ -55,7 +55,7 @@ export const SERVICES: ServiceConfig[] = [
     title: "Colocation",
     tagline: "Rack space, cross-connects, power",
     description:
-      "1U through full cabinet and cage colocation with metered or fixed power, redundant cooling, and direct cross-connects.",
+      "1U through full cage. Redundant power, cooling, cross-connects.",
     hero:
       "Quarter, half, full, and multi-cabinet deployments with redundant power, N+1 cooling, and a meet-me room with direct access to multiple carriers.",
     features: [
@@ -75,7 +75,7 @@ export const SERVICES: ServiceConfig[] = [
     title: "Hardware",
     tagline: "Repair, sourcing & custom builds",
     description:
-      "Server hardware procurement, repair, and custom-built systems for compute-heavy workloads.",
+      "Sourcing, repair, and custom builds for compute-heavy workloads.",
     hero:
       "Need a 4U GPU box yesterday? We source, build, test, and rack it. We also fix what you already have — board-level repair on enterprise gear.",
     features: [
@@ -95,7 +95,7 @@ export const SERVICES: ServiceConfig[] = [
     title: "Cybersecurity",
     tagline: "Network security & monitoring",
     description:
-      "Managed firewall, 24/7 monitoring, and incident response from an Iowa-based SOC.",
+      "Managed firewall, 24/7 monitoring, IR from an Iowa-based SOC.",
     hero:
       "Managed firewalls, IDS/IPS, log aggregation, and a real human on call. We watch the alerts so you don't have to.",
     features: [
@@ -115,7 +115,7 @@ export const SERVICES: ServiceConfig[] = [
     title: "Physical Security",
     tagline: "Access control & surveillance",
     description:
-      "Designed, installed, and monitored on-site security systems for facilities that matter.",
+      "Access control, surveillance, and monitored alarm response.",
     hero:
       "Card and biometric access, IP camera systems, and 24/7 monitored alarm response — designed and installed end-to-end.",
     features: [

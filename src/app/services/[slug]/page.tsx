@@ -30,13 +30,16 @@ export default async function ServicePage({
   const service = getService(slug);
   if (!service) notFound();
 
-  const num = String(getServiceIndex(slug) + 1).padStart(2, "0");
+  const idx = getServiceIndex(slug);
+  const num = String(idx + 1).padStart(2, "0");
+  const prev = SERVICES[(idx - 1 + SERVICES.length) % SERVICES.length];
+  const next = SERVICES[(idx + 1) % SERVICES.length];
 
   return (
     <div className="mx-auto w-full max-w-5xl px-6 pt-20 pb-24">
       <Reveal>
         <Link
-          href="/services"
+          href="/#services"
           className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50 hover:text-[#7CFFA8]"
         >
           ← All services
@@ -126,6 +129,38 @@ export default async function ServicePage({
 
       {/* PRICING SHELL — Phase 3 */}
       {/* TODO Phase 3: <ServicePricingTiers slug={service.slug} /> */}
+
+      {/* PREV / NEXT */}
+      <section className="mt-20 grid grid-cols-2 border-y border-border/60">
+        <Link
+          href={`/services/${prev.slug}`}
+          className="group p-5 md:p-6 border-r border-border/60 hover:bg-[rgba(124,255,168,0.03)] transition-colors"
+        >
+          <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/45">
+            ← Previous
+          </div>
+          <div className="mt-2 font-display text-lg md:text-xl group-hover:text-[#7CFFA8] transition-colors">
+            {prev.title}
+          </div>
+          <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/45 mt-1">
+            {prev.tagline}
+          </div>
+        </Link>
+        <Link
+          href={`/services/${next.slug}`}
+          className="group p-5 md:p-6 text-right hover:bg-[rgba(124,255,168,0.03)] transition-colors"
+        >
+          <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/45">
+            Next →
+          </div>
+          <div className="mt-2 font-display text-lg md:text-xl group-hover:text-[#7CFFA8] transition-colors">
+            {next.title}
+          </div>
+          <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/45 mt-1">
+            {next.tagline}
+          </div>
+        </Link>
+      </section>
 
       {/* CTA */}
       <section className="mt-20 border-t border-border/60 pt-16 text-center">

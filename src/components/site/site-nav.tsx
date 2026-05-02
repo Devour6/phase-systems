@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const NAV = [
-  { href: "/services", label: "Services" },
+  { href: "/#services", label: "Services" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -28,8 +28,10 @@ export function SiteNav() {
         </Link>
         <nav className="flex items-center gap-6">
           {NAV.map((item) => {
-            const active =
-              pathname === item.href || pathname.startsWith(item.href + "/");
+            const isHash = item.href.includes("#");
+            const active = !isHash && (
+              pathname === item.href || pathname.startsWith(item.href + "/")
+            );
             return (
               <Link
                 key={item.href}

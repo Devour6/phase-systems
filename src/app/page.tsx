@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { SERVICES } from "@/lib/services";
-import { ServiceCard } from "@/components/site/service-card";
+import { ServiceRow } from "@/components/site/service-row";
 import { Reveal } from "@/components/site/reveal";
 
 export default function HomePage() {
@@ -38,7 +38,7 @@ export default function HomePage() {
               Join the Waitlist →
             </Link>
             <Link
-              href="/services"
+              href="#services"
               className="font-mono text-xs uppercase tracking-widest border border-border px-5 py-3 hover-elevate text-foreground/80 hover:text-foreground"
             >
               Explore Services
@@ -47,33 +47,31 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* SERVICES GRID */}
-      <section className="pb-24">
+      {/* SERVICES — directory listing */}
+      <section id="services" className="pb-24 scroll-mt-20">
         <Reveal>
-          <div className="flex items-end justify-between mb-8">
+          <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
             <div>
               <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50">
-                Services
+                Services · 06
               </div>
-              <h2 className="font-display text-3xl md:text-4xl mt-2">
+              <h2 className="font-display text-3xl md:text-4xl mt-3">
                 Six verticals. One facility.
               </h2>
+              <p className="mt-3 max-w-xl text-sm md:text-base text-foreground/65 leading-relaxed">
+                A single, vertically-integrated stack. Pick the slice you need
+                — or take the whole rack.
+              </p>
             </div>
-            <Link
-              href="/services"
-              className="hidden md:inline-flex font-mono text-xs uppercase tracking-widest text-foreground/60 hover:text-[#7CFFA8]"
-            >
-              View all →
-            </Link>
           </div>
         </Reveal>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {SERVICES.map((s, i) => (
-            <Reveal key={s.slug} delay={i * 60}>
-              <ServiceCard service={s} index={i} />
-            </Reveal>
-          ))}
-        </div>
+        <Reveal delay={120}>
+          <div className="border-x border-border/60">
+            {SERVICES.map((s, i) => (
+              <ServiceRow key={s.slug} service={s} index={i} />
+            ))}
+          </div>
+        </Reveal>
       </section>
 
       {/* WHY DES MOINES TEASER */}
