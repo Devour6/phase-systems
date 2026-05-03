@@ -1,7 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SERVICES } from "@/lib/services";
 import { ServiceRow } from "@/components/site/service-row";
-import { RackBanner } from "@/components/site/rack-banner";
 import { Reveal } from "@/components/site/reveal";
 
 export default function HomePage() {
@@ -9,43 +9,75 @@ export default function HomePage() {
     <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
       {/* HERO */}
       <section className="pt-16 md:pt-24 pb-20 md:pb-32">
-        <Reveal>
-          <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/60 mb-6">
-            <span style={{ color: "#7CFFA8" }}>◆</span>{"  "}
-            Des Moines · Iowa
+        <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-center">
+          {/* LEFT: copy */}
+          <div className="md:col-span-7">
+            <Reveal>
+              <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/60 mb-6">
+                <span style={{ color: "#7CFFA8" }}>◆</span>{"  "}
+                Des Moines · Iowa
+              </div>
+            </Reveal>
+            <Reveal delay={80}>
+              <h1 className="font-display text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-wide">
+                PHASE
+                <br />
+                <span style={{ color: "#7CFFA8" }}>SYSTEMS</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={160}>
+              <p className="mt-8 max-w-xl text-lg md:text-xl text-foreground/75 leading-relaxed">
+                Built for the next generation of compute. Cloud, colocation,
+                internet, hardware, and security — operated end-to-end from the
+                heart of the American grid.
+              </p>
+            </Reveal>
+            <Reveal delay={240}>
+              <div className="mt-10 flex flex-wrap items-center gap-3">
+                <Link
+                  href="/waitlist"
+                  className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3 hover-elevate"
+                  style={{ color: "#7CFFA8" }}
+                >
+                  Join the Waitlist →
+                </Link>
+                <a
+                  href="#services"
+                  className="font-mono text-xs uppercase tracking-widest border border-border px-5 py-3 hover-elevate text-foreground/80 hover:text-foreground"
+                >
+                  Explore Services
+                </a>
+              </div>
+            </Reveal>
           </div>
-        </Reveal>
-        <Reveal delay={80}>
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-wide">
-            PHASE
-            <br />
-            <span style={{ color: "#7CFFA8" }}>SYSTEMS</span>
-          </h1>
-        </Reveal>
-        <Reveal delay={160}>
-          <p className="mt-8 max-w-2xl text-lg md:text-xl text-foreground/75 leading-relaxed">
-            Built for the next generation of compute. Cloud, colocation, internet,
-            hardware, and security — operated end-to-end from the heart of the
-            American grid.
-          </p>
-        </Reveal>
-        <Reveal delay={240}>
-          <div className="mt-10 flex flex-wrap items-center gap-3">
-            <Link
-              href="/waitlist"
-              className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3 hover-elevate"
-              style={{ color: "#7CFFA8" }}
-            >
-              Join the Waitlist →
-            </Link>
-            <a
-              href="#services"
-              className="font-mono text-xs uppercase tracking-widest border border-border px-5 py-3 hover-elevate text-foreground/80 hover:text-foreground"
-            >
-              Explore Services
-            </a>
+
+          {/* RIGHT: rack photo */}
+          <div className="md:col-span-5">
+            <Reveal delay={200}>
+              <figure className="relative">
+                <div className="relative border border-border/80 overflow-hidden bg-background">
+                  <Image
+                    src="/rack.jpg"
+                    alt="Phase Systems server rack — Des Moines, Iowa"
+                    width={1200}
+                    height={1472}
+                    priority
+                    className="block w-full h-auto"
+                  />
+                  {/* corner crosshairs */}
+                  <span aria-hidden className="pointer-events-none absolute top-2 left-2 w-3 h-3 border-t border-l border-[#7CFFA8]/70" />
+                  <span aria-hidden className="pointer-events-none absolute top-2 right-2 w-3 h-3 border-t border-r border-[#7CFFA8]/70" />
+                  <span aria-hidden className="pointer-events-none absolute bottom-2 left-2 w-3 h-3 border-b border-l border-[#7CFFA8]/70" />
+                  <span aria-hidden className="pointer-events-none absolute bottom-2 right-2 w-3 h-3 border-b border-r border-[#7CFFA8]/70" />
+                </div>
+                <figcaption className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/50">
+                  <span>◆ Live rack</span>
+                  <span>41.5868°N · 93.6250°W</span>
+                </figcaption>
+              </figure>
+            </Reveal>
           </div>
-        </Reveal>
+        </div>
       </section>
 
       {/* SERVICES — directory listing */}
@@ -74,11 +106,6 @@ export default function HomePage() {
           </div>
         </Reveal>
       </section>
-
-      {/* RACK BANNER — full bleed */}
-      <Reveal>
-        <RackBanner />
-      </Reveal>
 
       {/* WHY DES MOINES TEASER */}
       <section className="pb-24">
