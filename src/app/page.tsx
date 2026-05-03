@@ -37,12 +37,12 @@ export default function HomePage() {
             >
               Join the Waitlist →
             </Link>
-            <Link
+            <a
               href="#services"
               className="font-mono text-xs uppercase tracking-widest border border-border px-5 py-3 hover-elevate text-foreground/80 hover:text-foreground"
             >
               Explore Services
-            </Link>
+            </a>
           </div>
         </Reveal>
       </section>

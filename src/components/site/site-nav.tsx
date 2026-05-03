@@ -32,17 +32,22 @@ export function SiteNav() {
             const active = !isHash && (
               pathname === item.href || pathname.startsWith(item.href + "/")
             );
+            const className = cn(
+              "font-mono text-xs uppercase tracking-widest transition-colors",
+              active
+                ? "text-[#7CFFA8]"
+                : "text-foreground/70 hover:text-foreground"
+            );
+            if (isHash) {
+              const href = pathname === "/" ? item.href.replace("/", "") : item.href;
+              return (
+                <a key={item.href} href={href} className={className}>
+                  {item.label}
+                </a>
+              );
+            }
             return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "font-mono text-xs uppercase tracking-widest transition-colors",
-                  active
-                    ? "text-[#7CFFA8]"
-                    : "text-foreground/70 hover:text-foreground"
-                )}
-              >
+              <Link key={item.href} href={item.href} className={className}>
                 {item.label}
               </Link>
             );
