@@ -44,7 +44,7 @@ export function LoginForm() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           autoFocus
-          className="mt-2 w-full bg-card/40 border border-border px-3 py-3 text-sm font-mono outline-none focus:border-[#7CFFA8]"
+          className="mt-2 w-full bg-card/40 border border-border px-3 py-3 text-base md:text-sm font-mono outline-none focus:border-[#7CFFA8]"
           required
         />
       </div>

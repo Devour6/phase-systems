@@ -12,7 +12,7 @@ export function ServiceRow({
   return (
     <Link
       href={`/services/${service.slug}`}
-      className="service-row group relative grid grid-cols-[44px_minmax(0,200px)_minmax(0,1fr)_24px] items-center gap-x-6 px-2 py-6 border-t border-border/60 last:border-b transition-colors"
+      className="service-row group relative grid grid-cols-[36px_minmax(0,1fr)_20px] md:grid-cols-[44px_minmax(0,200px)_minmax(0,1fr)_24px] items-center gap-x-4 md:gap-x-6 px-2 py-5 md:py-6 border-t border-border/60 last:border-b transition-colors"
     >
       {/* left rule accent */}
       <span
@@ -30,15 +30,15 @@ export function ServiceRow({
 
       {/* title + tagline */}
       <div className="min-w-0">
-        <div className="font-display text-xl md:text-2xl leading-none">
+        <div className="font-display text-lg sm:text-xl md:text-2xl leading-tight">
           {service.title}
         </div>
-        <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/45 mt-2">
+        <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/45 mt-1.5 md:mt-2 truncate">
           {service.tagline}
         </div>
       </div>
 
-      {/* description */}
+      {/* description — desktop only */}
       <p className="hidden md:block text-sm text-foreground/65 leading-relaxed truncate">
         {service.description}
       </p>

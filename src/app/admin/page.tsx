@@ -119,7 +119,7 @@ export default async function AdminPage() {
   ]);
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-6 pt-20 pb-24">
+    <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 pt-12 md:pt-20 pb-16 md:pb-24">
       <div className="flex items-end justify-between flex-wrap gap-4">
         <div>
           <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50">

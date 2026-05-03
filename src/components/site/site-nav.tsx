@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const NAV = [
@@ -12,9 +13,60 @@ const NAV = [
 
 export function SiteNav() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+
+  // Close menu on route change
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  function renderLink(item: { href: string; label: string }, mobile = false) {
+    const isHash = item.href.includes("#");
+    const active =
+      !isHash &&
+      (pathname === item.href || pathname.startsWith(item.href + "/"));
+    const className = cn(
+      "font-mono uppercase tracking-widest transition-colors",
+      mobile ? "text-base py-3" : "text-xs",
+      active
+        ? "text-[#7CFFA8]"
+        : "text-foreground/70 hover:text-foreground"
+    );
+    if (isHash) {
+      const href = pathname === "/" ? item.href.replace("/", "") : item.href;
+      return (
+        <a
+          key={item.href}
+          href={href}
+          className={className}
+          onClick={() => setOpen(false)}
+        >
+          {item.label}
+        </a>
+      );
+    }
+    return (
+      <Link key={item.href} href={item.href} className={className}>
+        {item.label}
+      </Link>
+    );
+  }
+
   return (
     <header className="sticky top-0 z-30 border-b border-border/60 backdrop-blur-md bg-background/60">
-      <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-6">
+      <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-baseline gap-2">
           <span className="font-display text-base tracking-wider text-foreground">
             PHASE
@@ -26,37 +78,56 @@ export function SiteNav() {
             SYSTEMS
           </span>
         </Link>
-        <nav className="flex items-center gap-6">
-          {NAV.map((item) => {
-            const isHash = item.href.includes("#");
-            const active = !isHash && (
-              pathname === item.href || pathname.startsWith(item.href + "/")
-            );
-            const className = cn(
-              "font-mono text-xs uppercase tracking-widest transition-colors",
-              active
-                ? "text-[#7CFFA8]"
-                : "text-foreground/70 hover:text-foreground"
-            );
-            if (isHash) {
-              const href = pathname === "/" ? item.href.replace("/", "") : item.href;
-              return (
-                <a key={item.href} href={href} className={className}>
-                  {item.label}
-                </a>
-              );
-            }
-            return (
-              <Link key={item.href} href={item.href} className={className}>
-                {item.label}
-              </Link>
-            );
-          })}
+
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-6">
+          {NAV.map((item) => renderLink(item, false))}
           <Link
             href="/waitlist"
             className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8]/40 text-[#7CFFA8] px-3 py-1.5 hover-elevate"
           >
             Join Waitlist
+          </Link>
+        </nav>
+
+        {/* Mobile hamburger */}
+        <button
+          type="button"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="md:hidden flex flex-col justify-center items-center w-10 h-10 -mr-2 group"
+        >
+          <span
+            className={cn(
+              "block w-5 h-[1.5px] bg-foreground/80 transition-transform duration-200",
+              open ? "translate-y-[3px] rotate-45" : ""
+            )}
+          />
+          <span
+            className={cn(
+              "block w-5 h-[1.5px] bg-foreground/80 mt-[5px] transition-transform duration-200",
+              open ? "-translate-y-[3px] -rotate-45" : ""
+            )}
+          />
+        </button>
+      </div>
+
+      {/* Mobile drawer */}
+      <div
+        className={cn(
+          "md:hidden fixed inset-x-0 top-14 bottom-0 z-20 bg-background/95 backdrop-blur-md border-t border-border/60 transition-opacity duration-200",
+          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        )}
+      >
+        <nav className="flex flex-col px-6 py-6 gap-1">
+          {NAV.map((item) => renderLink(item, true))}
+          <Link
+            href="/waitlist"
+            onClick={() => setOpen(false)}
+            className="mt-6 font-mono text-sm uppercase tracking-widest border border-[#7CFFA8] text-[#7CFFA8] px-5 py-3 text-center hover-elevate"
+          >
+            Join Waitlist →
           </Link>
         </nav>
       </div>

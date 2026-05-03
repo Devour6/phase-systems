@@ -62,7 +62,7 @@ export function ContactForm() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full bg-background/60 border border-border px-3 py-2.5 font-mono text-sm focus:outline-none focus:border-[#7CFFA8]"
+            className="w-full bg-background/60 border border-border px-3 py-3 font-mono text-base md:text-sm focus:outline-none focus:border-[#7CFFA8]"
             placeholder="you@company.com"
           />
         </div>
@@ -74,7 +74,7 @@ export function ContactForm() {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full bg-background/60 border border-border px-3 py-2.5 font-mono text-sm focus:outline-none focus:border-[#7CFFA8]"
+            className="w-full bg-background/60 border border-border px-3 py-3 font-mono text-base md:text-sm focus:outline-none focus:border-[#7CFFA8]"
           />
         </div>
       </div>
@@ -100,7 +100,7 @@ export function ContactForm() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={5}
-          className="w-full bg-background/60 border border-border px-3 py-2.5 font-mono text-sm focus:outline-none focus:border-[#7CFFA8] resize-none"
+          className="w-full bg-background/60 border border-border px-3 py-3 font-mono text-base md:text-sm focus:outline-none focus:border-[#7CFFA8] resize-none"
           placeholder="Workload, scale, timeline, anything else useful…"
         />
       </div>

@@ -75,7 +75,7 @@ export function WaitlistForm() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full bg-background/60 border border-border px-3 py-2.5 font-mono text-sm focus:outline-none focus:border-[#7CFFA8]"
+          className="w-full bg-background/60 border border-border px-3 py-3 font-mono text-base md:text-sm focus:outline-none focus:border-[#7CFFA8]"
           placeholder="you@company.com"
         />
       </div>
@@ -89,7 +89,7 @@ export function WaitlistForm() {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full bg-background/60 border border-border px-3 py-2.5 font-mono text-sm focus:outline-none focus:border-[#7CFFA8]"
+            className="w-full bg-background/60 border border-border px-3 py-3 font-mono text-base md:text-sm focus:outline-none focus:border-[#7CFFA8]"
           />
         </div>
         <div>
@@ -100,7 +100,7 @@ export function WaitlistForm() {
             type="text"
             value={company}
             onChange={(e) => setCompany(e.target.value)}
-            className="w-full bg-background/60 border border-border px-3 py-2.5 font-mono text-sm focus:outline-none focus:border-[#7CFFA8]"
+            className="w-full bg-background/60 border border-border px-3 py-3 font-mono text-base md:text-sm focus:outline-none focus:border-[#7CFFA8]"
           />
         </div>
       </div>
@@ -109,7 +109,7 @@ export function WaitlistForm() {
         <div className="font-mono text-[11px] uppercase tracking-widest text-foreground/60 mb-3">
           Interested in
         </div>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {SERVICES.map((s) => {
             const active = interests.includes(s.slug);
             return (
@@ -117,7 +117,7 @@ export function WaitlistForm() {
                 key={s.slug}
                 type="button"
                 onClick={() => toggle(s.slug)}
-                className="text-left border px-3 py-2.5 transition-colors"
+                className="text-left border px-3 py-3 transition-colors"
                 style={{
                   borderColor: active ? "#7CFFA8" : "rgba(243,238,217,0.1)",
                   background: active

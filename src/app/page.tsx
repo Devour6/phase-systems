@@ -5,9 +5,9 @@ import { Reveal } from "@/components/site/reveal";
 
 export default function HomePage() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-6">
+    <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
       {/* HERO */}
-      <section className="pt-24 pb-32">
+      <section className="pt-16 md:pt-24 pb-20 md:pb-32">
         <Reveal>
           <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/60 mb-6">
             <span style={{ color: "#7CFFA8" }}>◆</span>{"  "}
@@ -15,7 +15,7 @@ export default function HomePage() {
           </div>
         </Reveal>
         <Reveal delay={80}>
-          <h1 className="font-display text-5xl md:text-7xl leading-[1.05] tracking-wide">
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-wide">
             PHASE
             <br />
             <span style={{ color: "#7CFFA8" }}>SYSTEMS</span>
@@ -77,8 +77,8 @@ export default function HomePage() {
       {/* WHY DES MOINES TEASER */}
       <section className="pb-24">
         <Reveal>
-          <div className="border border-border bg-card/40 backdrop-blur-sm p-8 md:p-12">
-            <div className="grid md:grid-cols-3 gap-8">
+          <div className="border border-border bg-card/40 backdrop-blur-sm p-6 md:p-12">
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8">
               <div>
                 <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50">
                   Why Des Moines

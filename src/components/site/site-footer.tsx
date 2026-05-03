@@ -3,7 +3,7 @@ import Link from "next/link";
 export function SiteFooter() {
   return (
     <footer className="border-t border-border/60 mt-24">
-      <div className="mx-auto w-full max-w-6xl px-6 py-10 grid gap-8 md:grid-cols-4">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 py-10 grid gap-8 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-baseline gap-2">
             <span className="font-display tracking-wider">PHASE</span>
@@ -51,7 +51,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-border/60">
-        <div className="mx-auto w-full max-w-6xl px-6 py-5 flex items-center justify-between font-mono text-[11px] uppercase tracking-widest text-foreground/50">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 font-mono text-[11px] uppercase tracking-widest text-foreground/50">
           <span>© {new Date().getFullYear()} Phase Systems</span>
           <span>Des Moines · Iowa · 41.5868° N, 93.6250° W</span>
         </div>

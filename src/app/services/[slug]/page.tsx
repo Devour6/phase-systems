@@ -36,7 +36,7 @@ export default async function ServicePage({
   const next = SERVICES[(idx + 1) % SERVICES.length];
 
   return (
-    <div className="mx-auto w-full max-w-5xl px-6 pt-20 pb-24">
+    <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 pt-12 md:pt-20 pb-16 md:pb-24">
       <Reveal>
         <Link
           href="/#services"
