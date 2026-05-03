@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SERVICES } from "@/lib/services";
 import { ServiceRow } from "@/components/site/service-row";
+import { RackBanner } from "@/components/site/rack-banner";
 import { Reveal } from "@/components/site/reveal";
 
 export default function HomePage() {
@@ -73,6 +74,11 @@ export default function HomePage() {
           </div>
         </Reveal>
       </section>
+
+      {/* RACK BANNER — full bleed */}
+      <Reveal>
+        <RackBanner />
+      </Reveal>
 
       {/* WHY DES MOINES TEASER */}
       <section className="pb-24">
