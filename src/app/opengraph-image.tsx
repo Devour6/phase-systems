@@ -90,8 +90,16 @@ export default async function OG() {
             textTransform: "uppercase",
           }}
         >
-          <span style={{ color: "#7CFFA8" }}>◆</span>
-          <span>Des Moines · Iowa</span>
+          <span
+            style={{
+              width: 14,
+              height: 14,
+              background: "#7CFFA8",
+              transform: "rotate(45deg)",
+              display: "flex",
+            }}
+          />
+          <span style={{ marginLeft: 6 }}>Des Moines / Iowa</span>
         </div>
 
         {/* main row: logo + wordmark */}
