@@ -39,10 +39,10 @@ export function SiteNav() {
       (pathname === item.href || pathname.startsWith(item.href + "/"));
     const className = cn(
       "font-mono uppercase tracking-widest transition-colors",
-      mobile ? "text-base py-3" : "text-xs",
+      mobile ? "text-lg py-5 -mx-2 px-2" : "text-xs",
       active
         ? "text-[#7CFFA8]"
-        : "text-foreground/70 hover:text-foreground"
+        : "text-foreground/80 hover:text-foreground"
     );
     if (isHash) {
       const href = pathname === "/" ? item.href.replace("/", "") : item.href;
@@ -58,14 +58,26 @@ export function SiteNav() {
       );
     }
     return (
-      <Link key={item.href} href={item.href} className={className}>
+      <Link
+        key={item.href}
+        href={item.href}
+        className={className}
+        onClick={() => setOpen(false)}
+      >
         {item.label}
       </Link>
     );
   }
 
   return (
-    <header className="sticky top-0 z-30 border-b border-border/60 backdrop-blur-md bg-background/60">
+    <header
+      className={cn(
+        "sticky top-0 z-40 border-b border-border/60 transition-colors",
+        open
+          ? "bg-background"
+          : "backdrop-blur-md bg-background/80"
+      )}
+    >
       <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-baseline gap-2">
           <span className="font-display text-base tracking-wider text-foreground">
@@ -113,22 +125,26 @@ export function SiteNav() {
         </button>
       </div>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — solid bg, sits below header */}
       <div
         className={cn(
-          "md:hidden fixed inset-x-0 top-14 bottom-0 z-20 bg-background/95 backdrop-blur-md border-t border-border/60 transition-opacity duration-200",
+          "md:hidden fixed inset-x-0 top-14 bottom-0 z-30 bg-background border-t border-border/60 transition-opacity duration-200",
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
-        <nav className="flex flex-col px-6 py-6 gap-1">
+        <nav className="flex flex-col px-6 py-8 gap-1 divide-y divide-border/40">
           {NAV.map((item) => renderLink(item, true))}
           <Link
             href="/waitlist"
             onClick={() => setOpen(false)}
-            className="mt-6 font-mono text-sm uppercase tracking-widest border border-[#7CFFA8] text-[#7CFFA8] px-5 py-3 text-center hover-elevate"
+            className="mt-8 font-mono text-sm uppercase tracking-widest border border-[#7CFFA8] text-[#7CFFA8] px-5 py-4 text-center hover-elevate"
           >
             Join Waitlist →
           </Link>
+          <div className="mt-8 pt-6 font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/40 border-t border-border/40">
+            Des Moines · Iowa<br />
+            41.6867°N · 93.5988°W
+          </div>
         </nav>
       </div>
     </header>

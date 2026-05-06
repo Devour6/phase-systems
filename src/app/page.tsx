@@ -33,17 +33,17 @@ export default function HomePage() {
               </p>
             </Reveal>
             <Reveal delay={240}>
-              <div className="mt-10 flex flex-wrap items-center gap-3">
+              <div className="mt-10 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
                 <Link
                   href="/waitlist"
-                  className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3 hover-elevate"
+                  className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3.5 hover-elevate text-center"
                   style={{ color: "#7CFFA8" }}
                 >
                   Join the Waitlist →
                 </Link>
                 <a
                   href="#services"
-                  className="font-mono text-xs uppercase tracking-widest border border-border px-5 py-3 hover-elevate text-foreground/80 hover:text-foreground"
+                  className="font-mono text-xs uppercase tracking-widest border border-border px-5 py-3.5 hover-elevate text-foreground/80 hover:text-foreground text-center"
                 >
                   Explore Services
                 </a>
@@ -72,7 +72,7 @@ export default function HomePage() {
                 </div>
                 <figcaption className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/50">
                   <span>◆ On-site</span>
-                  <span>41.5868°N · 93.6250°W</span>
+                  <span>41.6867°N · 93.5988°W</span>
                 </figcaption>
               </figure>
             </Reveal>
@@ -156,9 +156,9 @@ export default function HomePage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="pb-32">
+      <section className="pb-24 md:pb-32">
         <Reveal>
-          <div className="text-center py-20 border-t border-border/60">
+          <div className="text-center py-14 md:py-20 border-t border-border/60">
             <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50">
               Get on the list
             </div>

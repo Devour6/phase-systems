@@ -53,7 +53,7 @@ export function SiteFooter() {
       <div className="border-t border-border/60">
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 font-mono text-[11px] uppercase tracking-widest text-foreground/50">
           <span>© {new Date().getFullYear()} Phase Systems</span>
-          <span>Des Moines · Iowa · 41.5868° N, 93.6250° W</span>
+          <span>Des Moines · Iowa · 41.6867° N, 93.5988° W</span>
         </div>
       </div>
     </footer>
