@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -79,15 +80,25 @@ export function SiteNav() {
       )}
     >
       <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="flex items-baseline gap-2">
-          <span className="font-display text-base tracking-wider text-foreground">
-            PHASE
-          </span>
-          <span
-            className="font-display text-base tracking-wider"
-            style={{ color: "#7CFFA8" }}
-          >
-            SYSTEMS
+        <Link href="/" className="flex items-center gap-2.5">
+          <Image
+            src="/logo-mark-256.png"
+            alt="Phase Systems"
+            width={28}
+            height={28}
+            priority
+            className="h-6 w-6 sm:h-7 sm:w-7"
+          />
+          <span className="flex items-baseline gap-1.5">
+            <span className="font-display text-base tracking-wider text-foreground">
+              PHASE
+            </span>
+            <span
+              className="font-display text-base tracking-wider"
+              style={{ color: "#7CFFA8" }}
+            >
+              SYSTEMS
+            </span>
           </span>
         </Link>
 

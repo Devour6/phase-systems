@@ -7,10 +7,10 @@ const OUT = "public/og-image.jpg";
 const W = 1200;
 const H = 630;
 
-// Resize logo to ~280px, will sit left of wordmark
+// Resize transparent logo mark — composites cleanly over the gradient bg
 const LOGO_SIZE = 240;
-const logo = await sharp("public/phase-systems-logo-original.png")
-  .resize({ width: LOGO_SIZE, height: LOGO_SIZE, fit: "contain", background: { r: 15, g: 14, b: 12, alpha: 1 } })
+const logo = await sharp("public/logo-mark.png")
+  .resize({ width: LOGO_SIZE, height: LOGO_SIZE, fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
   .toBuffer();
 
 // SVG composition

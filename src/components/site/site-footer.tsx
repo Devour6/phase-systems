@@ -1,15 +1,25 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-border/60 mt-24">
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 py-10 grid gap-8 md:grid-cols-4">
         <div className="md:col-span-2">
-          <div className="flex items-baseline gap-2">
-            <span className="font-display tracking-wider">PHASE</span>
-            <span className="font-display tracking-wider" style={{ color: "#7CFFA8" }}>
-              SYSTEMS
-            </span>
+          <div className="flex items-center gap-3">
+            <Image
+              src="/logo-mark-256.png"
+              alt="Phase Systems"
+              width={32}
+              height={32}
+              className="h-7 w-7"
+            />
+            <div className="flex items-baseline gap-1.5">
+              <span className="font-display tracking-wider">PHASE</span>
+              <span className="font-display tracking-wider" style={{ color: "#7CFFA8" }}>
+                SYSTEMS
+              </span>
+            </div>
           </div>
           <p className="mt-3 text-sm text-foreground/60 max-w-sm">
             Phase Systems is the data center vertical of Phase. Built in Des Moines, Iowa
