@@ -42,14 +42,12 @@ export const metadata: Metadata = {
     description: "Built for the next generation of compute. Des Moines, Iowa.",
     url: "https://phase-systems.vercel.app",
     siteName: "Phase Systems",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Phase Systems",
     description: "Built for the next generation of compute. Des Moines, Iowa.",
-    images: ["/og-image.jpg"],
   },
 };
 
