@@ -5,6 +5,7 @@ import { Reveal } from "@/components/site/reveal";
 import { SplitHeading } from "@/components/site/split-heading";
 import { SecNum } from "@/components/site/sec-num";
 import { VIZ_BY_SLUG } from "@/components/site/viz";
+import { Glitch } from "@/components/site/glitch";
 
 export function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
@@ -66,7 +67,7 @@ export default async function ServicePage({
                 delay={120}
                 step={90}
               >
-                {service.title}
+                <Glitch className="text-[#7CFFA8]">{service.title}</Glitch>
               </SplitHeading>
               <Reveal delay={300}>
                 <div
