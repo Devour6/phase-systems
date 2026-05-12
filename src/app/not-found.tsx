@@ -23,17 +23,10 @@ export default function NotFound() {
             That page doesn&apos;t exist — or hasn&apos;t been racked yet.
           </p>
           <div className="mt-9 flex justify-center gap-3 flex-wrap">
-            <Link
-              href="/"
-              className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3.5 hover-elevate"
-              style={{ color: "#7CFFA8" }}
-            >
+            <Link href="/" className="btn-primary hover-elevate">
               ← Back home
             </Link>
-            <Link
-              href="/#services"
-              className="font-mono text-xs uppercase tracking-widest border border-border px-5 py-3.5 hover-elevate text-foreground/80 hover:text-foreground"
-            >
+            <Link href="/#services" className="btn-secondary hover-elevate">
               Browse Services
             </Link>
           </div>

@@ -166,17 +166,10 @@ export default function AboutPage() {
             We&apos;re lighting up services in waves.
           </SplitHeading>
           <div className="mt-8 flex justify-center gap-3 flex-wrap">
-            <Link
-              href="/waitlist"
-              className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3.5 hover-elevate"
-              style={{ color: "#7CFFA8" }}
-            >
+            <Link href="/waitlist" className="btn-primary hover-elevate">
               Join Waitlist →
             </Link>
-            <Link
-              href="/#services"
-              className="font-mono text-xs uppercase tracking-widest border border-border px-5 py-3.5 hover-elevate text-foreground/80 hover:text-foreground"
-            >
+            <Link href="/#services" className="btn-secondary hover-elevate">
               Browse Services
             </Link>
           </div>

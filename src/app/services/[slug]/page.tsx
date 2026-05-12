@@ -86,14 +86,13 @@ export default async function ServicePage({
                 <div className="mt-9 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
                   <Link
                     href={`/waitlist?service=${service.slug}`}
-                    className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3.5 hover-elevate text-center"
-                    style={{ color: "#7CFFA8" }}
+                    className="btn-primary hover-elevate"
                   >
                     {service.cta} →
                   </Link>
                   <Link
                     href="/contact"
-                    className="font-mono text-xs uppercase tracking-widest border border-border px-5 py-3.5 hover-elevate text-foreground/80 hover:text-foreground text-center"
+                    className="btn-secondary hover-elevate"
                   >
                     Contact Sales
                   </Link>
@@ -221,14 +220,13 @@ export default async function ServicePage({
           <div className="mt-9 flex justify-center gap-3 flex-wrap">
             <Link
               href={`/waitlist?service=${service.slug}`}
-              className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3.5 hover-elevate"
-              style={{ color: "#7CFFA8" }}
+              className="btn-primary hover-elevate"
             >
               Join Waitlist →
             </Link>
             <Link
               href="/contact"
-              className="font-mono text-xs uppercase tracking-widest border border-border px-5 py-3.5 hover-elevate text-foreground/80 hover:text-foreground"
+              className="btn-secondary hover-elevate"
             >
               Contact Sales
             </Link>

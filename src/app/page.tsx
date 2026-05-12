@@ -268,11 +268,7 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={520}>
             <div className="mt-8">
-              <Link
-                href="/waitlist"
-                className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-6 py-3.5 hover-elevate inline-block"
-                style={{ color: "#7CFFA8" }}
-              >
+              <Link href="/waitlist" className="btn-primary hover-elevate">
                 Join the Waitlist →
               </Link>
             </div>
