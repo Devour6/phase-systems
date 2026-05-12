@@ -22,6 +22,13 @@ export function CustomCursor() {
     let rx = -100;
     let ry = -100;
     let raf = 0;
+    let heroEl: HTMLElement | null = document.getElementById("hero-grid");
+    let heroRect: DOMRect | null = heroEl ? heroEl.getBoundingClientRect() : null;
+
+    const refreshHeroRect = () => {
+      heroEl = document.getElementById("hero-grid");
+      heroRect = heroEl ? heroEl.getBoundingClientRect() : null;
+    };
 
     const onMove = (e: MouseEvent) => {
       mx = e.clientX;
@@ -34,6 +41,13 @@ export function CustomCursor() {
       dot.style.transform = `translate3d(${mx - 3}px, ${my - 3}px, 0)`;
       const half = ring.offsetWidth / 2;
       ring.style.transform = `translate3d(${rx - half}px, ${ry - half}px, 0)`;
+      // hero spotlight follows cursor while in view
+      if (heroEl && heroRect) {
+        const px = ((mx - heroRect.left) / heroRect.width) * 100;
+        const py = ((my - heroRect.top) / heroRect.height) * 100;
+        heroEl.style.setProperty("--mx", px + "%");
+        heroEl.style.setProperty("--my", py + "%");
+      }
       raf = requestAnimationFrame(loop);
     };
 
@@ -41,6 +55,8 @@ export function CustomCursor() {
     const onLeave = () => document.body.classList.remove("hover-link");
 
     window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener("scroll", refreshHeroRect, { passive: true });
+    window.addEventListener("resize", refreshHeroRect, { passive: true });
     raf = requestAnimationFrame(loop);
 
     // Delegate hover state via mouseover/mouseout (handles dynamically added nodes)
@@ -65,6 +81,8 @@ export function CustomCursor() {
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("scroll", refreshHeroRect);
+      window.removeEventListener("resize", refreshHeroRect);
       document.removeEventListener("mouseover", onOver);
       document.removeEventListener("mouseout", onOut);
       document.body.classList.remove("custom-cursor-on", "hover-link");
