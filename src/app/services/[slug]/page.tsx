@@ -208,7 +208,16 @@ export default async function ServicePage({
       </section>
 
       {/* CTA */}
-      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-24 md:pb-32 text-center">
+      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-24 md:pb-32">
+        <div
+          className="relative pt-14 md:pt-20 text-center"
+          style={{ borderTop: "1px solid var(--border)" }}
+        >
+          <span
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 -top-px h-px w-24 -translate-x-1/2"
+            style={{ background: "var(--accent)" }}
+          />
         <Reveal>
           <SplitHeading
             as="h3"
@@ -235,6 +244,7 @@ export default async function ServicePage({
             </Link>
           </div>
         </Reveal>
+        </div>
       </section>
     </div>
   );
