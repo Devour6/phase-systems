@@ -17,7 +17,9 @@ export default function HomePage() {
       {/* HERO — full-width grid, container inside */}
       <section className="relative overflow-hidden">
         <div id="hero-grid" className="hero-grid" aria-hidden />
-        <div className="relative z-[2] mx-auto w-full max-w-6xl px-4 sm:px-6 pt-12 md:pt-20 pb-20 md:pb-24">
+        <div className="relative z-[2] mx-auto w-full max-w-6xl px-4 sm:px-6 pt-10 md:pt-16 pb-20 md:pb-24">
+          {/* Section number */}
+          <SecNum label="01 — Operations" className="mb-6" />
           {/* HUD pills */}
           <Reveal>
             <HeroHudPills />
@@ -93,7 +95,7 @@ export default function HomePage() {
         <Reveal>
           <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
             <div>
-              <SecNum>02 — Services</SecNum>
+              <SecNum label="02 — Services" />
               <SplitHeading
                 as="h2"
                 className="font-display text-3xl md:text-4xl mt-3"
@@ -119,7 +121,7 @@ export default function HomePage() {
       {/* REGION + LATENCY */}
       <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-20 md:pb-24">
         <Reveal>
-          <SecNum>03 — Region</SecNum>
+          <SecNum label="03 — Region" />
           <SplitHeading
             as="h2"
             className="font-display text-3xl md:text-4xl mt-3"
@@ -169,7 +171,7 @@ export default function HomePage() {
       {/* STATS STRIP */}
       <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-20 md:pb-24">
         <Reveal>
-          <SecNum>04 — Facility</SecNum>
+          <SecNum label="04 — Facility" />
           <SplitHeading
             as="h2"
             className="font-display text-3xl md:text-4xl mt-3 mb-10"
@@ -187,7 +189,7 @@ export default function HomePage() {
         <Reveal>
           <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
             <div className="md:col-span-7 order-2 md:order-1">
-              <SecNum>05 — On-site</SecNum>
+              <SecNum label="05 — On-site" />
               <SplitHeading
                 as="h3"
                 className="font-display text-2xl md:text-4xl mt-3 leading-tight"
@@ -228,7 +230,7 @@ export default function HomePage() {
       {/* FINAL CTA */}
       <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-24 md:pb-32">
         <div className="text-center py-14 md:py-20 border-t border-border/60">
-          <SecNum label="// Get on the list" className="!justify-center inline-block" />
+          <SecNum label="06 — Get on the list" className="!justify-center inline-block" />
           <SplitHeading
             as="h3"
             className="font-display text-3xl md:text-5xl mt-5 leading-tight"
