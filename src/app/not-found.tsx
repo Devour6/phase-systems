@@ -1,24 +1,44 @@
 import Link from "next/link";
+import { SplitHeading } from "@/components/site/split-heading";
+import { SecNum } from "@/components/site/sec-num";
+import { Glitch } from "@/components/site/glitch";
 
 export default function NotFound() {
   return (
-    <div className="mx-auto w-full max-w-2xl px-6 pt-32 pb-32 text-center">
-      <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50">
-        404
-      </div>
-      <h1 className="font-display text-5xl mt-3" style={{ color: "#7CFFA8" }}>
-        Off the grid.
-      </h1>
-      <p className="text-foreground/70 mt-5">
-        That page doesn&apos;t exist — or hasn&apos;t been racked yet.
-      </p>
-      <Link
-        href="/"
-        className="mt-8 inline-block font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3 hover-elevate"
-        style={{ color: "#7CFFA8" }}
-      >
-        ← Back home
-      </Link>
+    <div className="w-full">
+      <section className="relative overflow-hidden">
+        <div id="hero-grid" className="hero-grid" aria-hidden />
+        <div className="relative z-[2] mx-auto w-full max-w-3xl px-4 sm:px-6 pt-24 md:pt-32 pb-24 md:pb-32 text-center">
+          <SecNum label="// ERR / 404" className="!justify-center inline-block" />
+          <SplitHeading
+            as="h1"
+            className="font-display text-5xl sm:text-6xl md:text-7xl leading-[1.02] tracking-tight mt-6"
+            delay={120}
+            step={90}
+          >
+            Off the{" "}
+            <Glitch className="text-[#7CFFA8] inline-block">grid.</Glitch>
+          </SplitHeading>
+          <p className="text-foreground/65 mt-7 max-w-md mx-auto leading-relaxed">
+            That page doesn&apos;t exist — or hasn&apos;t been racked yet.
+          </p>
+          <div className="mt-9 flex justify-center gap-3 flex-wrap">
+            <Link
+              href="/"
+              className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3.5 hover-elevate"
+              style={{ color: "#7CFFA8" }}
+            >
+              ← Back home
+            </Link>
+            <Link
+              href="/#services"
+              className="font-mono text-xs uppercase tracking-widest border border-border px-5 py-3.5 hover-elevate text-foreground/80 hover:text-foreground"
+            >
+              Browse Services
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
