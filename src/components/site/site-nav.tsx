@@ -107,9 +107,9 @@ export function SiteNav() {
           {NAV.map((item) => renderLink(item, false))}
           <Link
             href="/waitlist"
-            className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8]/40 text-[#7CFFA8] px-3 py-1.5 hover-elevate"
+            className="btn-primary btn-sm hover-elevate"
           >
-            Join Waitlist
+            Join Waitlist →
           </Link>
         </nav>
 
@@ -148,7 +148,7 @@ export function SiteNav() {
           <Link
             href="/waitlist"
             onClick={() => setOpen(false)}
-            className="mt-8 font-mono text-sm uppercase tracking-widest border border-[#7CFFA8] text-[#7CFFA8] px-5 py-4 text-center hover-elevate"
+            className="btn-primary mt-8 w-full justify-center hover-elevate"
           >
             Join Waitlist →
           </Link>

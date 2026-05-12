@@ -1533,6 +1533,11 @@ input::placeholder, textarea::placeholder {
   color: var(--text-1);
   background: var(--bg-1);
 }
+.btn-sm {
+  padding: 8px 14px;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+}
 
 /* ============ PAGE TRANSITION FADE ============ */
 .page-fade-in {
