@@ -1,6 +1,9 @@
 import { Suspense } from "react";
 import { WaitlistForm } from "./waitlist-form";
 import { Reveal } from "@/components/site/reveal";
+import { SplitHeading } from "@/components/site/split-heading";
+import { SecNum } from "@/components/site/sec-num";
+import { Glitch } from "@/components/site/glitch";
 
 export const metadata = {
   title: "Waitlist — Phase Systems",
@@ -10,32 +13,39 @@ export const metadata = {
 
 export default function WaitlistPage() {
   return (
-    <div className="mx-auto w-full max-w-2xl px-4 sm:px-6 pt-12 md:pt-20 pb-16 md:pb-24">
-      <Reveal>
-        <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50">
-          Waitlist
-        </div>
-      </Reveal>
-      <Reveal delay={80}>
-        <h1 className="font-display text-4xl md:text-5xl mt-3 leading-[1.05]">
-          Be first <span style={{ color: "#7CFFA8" }}>in line</span>.
-        </h1>
-      </Reveal>
-      <Reveal delay={160}>
-        <p className="mt-6 text-foreground/75 leading-relaxed">
-          We&apos;re bringing services online one vertical at a time. Drop your
-          email and tell us what you&apos;re after — we&apos;ll reach out the
-          moment your slice is ready.
-        </p>
-      </Reveal>
+    <div className="w-full">
+      <section className="relative overflow-hidden">
+        <div id="hero-grid" className="hero-grid" aria-hidden />
+        <div className="relative z-[2] mx-auto w-full max-w-3xl px-4 sm:px-6 pt-12 md:pt-20 pb-16 md:pb-24">
+          <SecNum label="// Waitlist" className="mb-6" />
+          <SplitHeading
+            as="h1"
+            className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.02] tracking-tight"
+            delay={120}
+            step={90}
+          >
+            Be first{" "}
+            <Glitch className="text-[#7CFFA8] block sm:inline">
+              in line.
+            </Glitch>
+          </SplitHeading>
+          <Reveal delay={400}>
+            <p className="mt-7 text-base md:text-lg text-foreground/70 leading-relaxed max-w-xl">
+              We&apos;re bringing services online one vertical at a time. Drop
+              your email and tell us what you&apos;re after — we&apos;ll reach
+              out the moment your slice is ready.
+            </p>
+          </Reveal>
 
-      <Reveal delay={240}>
-        <div className="mt-10 border border-border bg-card/40 backdrop-blur-sm p-6 md:p-8">
-          <Suspense fallback={null}>
-            <WaitlistForm />
-          </Suspense>
+          <Reveal delay={520}>
+            <div className="mt-10 border border-border bg-[var(--bg-1)] p-6 md:p-8">
+              <Suspense fallback={null}>
+                <WaitlistForm />
+              </Suspense>
+            </div>
+          </Reveal>
         </div>
-      </Reveal>
+      </section>
     </div>
   );
 }

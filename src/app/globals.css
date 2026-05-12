@@ -1388,6 +1388,49 @@ body.hover-link #cursor-ring {
   vertical-align: -1px;
 }
 
+/* ============ SERVICE DETAIL HERO VIZ ============ */
+.service-hero-viz {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  padding: var(--s-5);
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--dur-base) var(--ease-out),
+              background var(--dur-base) var(--ease-out);
+}
+.service-hero-viz:hover {
+  border-color: var(--accent-glow);
+  background: var(--bg-2);
+}
+
+/* ============ FORM SURFACES (editorial dark) ============ */
+.form-surface {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+}
+input, textarea, select {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  color: var(--text-1);
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  transition: border-color var(--dur-fast) var(--ease-out),
+              background var(--dur-fast) var(--ease-out);
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent);
+  background: var(--bg-3);
+  outline: none;
+}
+input::placeholder, textarea::placeholder {
+  color: var(--text-3);
+  opacity: 0.6;
+}
+
+/* ============ NORMAL CASE ESCAPE HATCH ============ */
+.normal-case { text-transform: none !important; }
+
 /* ============ REDUCED MOTION ============ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

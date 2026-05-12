@@ -13,3 +13,6 @@ export const VIZ_MAP: Record<string, React.ComponentType> = {
   cybersecurity: VizCybersecurity,
   "physical-security": VizPhysicalSecurity,
 };
+
+// Alias for clarity in detail page usage
+export const VIZ_BY_SLUG = VIZ_MAP;

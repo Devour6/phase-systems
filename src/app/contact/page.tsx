@@ -1,5 +1,8 @@
 import { ContactForm } from "./contact-form";
 import { Reveal } from "@/components/site/reveal";
+import { SplitHeading } from "@/components/site/split-heading";
+import { SecNum } from "@/components/site/sec-num";
+import { Glitch } from "@/components/site/glitch";
 
 export const metadata = {
   title: "Contact — Phase Systems",
@@ -9,30 +12,37 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto w-full max-w-2xl px-4 sm:px-6 pt-12 md:pt-20 pb-16 md:pb-24">
-      <Reveal>
-        <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50">
-          Contact
-        </div>
-      </Reveal>
-      <Reveal delay={80}>
-        <h1 className="font-display text-4xl md:text-5xl mt-3 leading-[1.05]">
-          Talk to <span style={{ color: "#7CFFA8" }}>sales</span>.
-        </h1>
-      </Reveal>
-      <Reveal delay={160}>
-        <p className="mt-6 text-foreground/75 leading-relaxed">
-          Iowa-based humans. Same-day response on weekdays. Tell us what
-          you&apos;re building and we&apos;ll send back something useful — not a
-          form letter.
-        </p>
-      </Reveal>
+    <div className="w-full">
+      <section className="relative overflow-hidden">
+        <div id="hero-grid" className="hero-grid" aria-hidden />
+        <div className="relative z-[2] mx-auto w-full max-w-3xl px-4 sm:px-6 pt-12 md:pt-20 pb-16 md:pb-24">
+          <SecNum label="// Contact" className="mb-6" />
+          <SplitHeading
+            as="h1"
+            className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.02] tracking-tight"
+            delay={120}
+            step={90}
+          >
+            Talk to{" "}
+            <Glitch className="text-[#7CFFA8] block sm:inline">
+              sales.
+            </Glitch>
+          </SplitHeading>
+          <Reveal delay={400}>
+            <p className="mt-7 text-base md:text-lg text-foreground/70 leading-relaxed max-w-xl">
+              Iowa-based humans. Same-day response on weekdays. Tell us what
+              you&apos;re building and we&apos;ll send back something useful —
+              not a form letter.
+            </p>
+          </Reveal>
 
-      <Reveal delay={240}>
-        <div className="mt-10 border border-border bg-card/40 backdrop-blur-sm p-6 md:p-8">
-          <ContactForm />
+          <Reveal delay={520}>
+            <div className="mt-10 border border-border bg-[var(--bg-1)] p-6 md:p-8">
+              <ContactForm />
+            </div>
+          </Reveal>
         </div>
-      </Reveal>
+      </section>
     </div>
   );
 }

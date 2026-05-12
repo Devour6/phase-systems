@@ -1,5 +1,10 @@
 import Link from "next/link";
 import { Reveal } from "@/components/site/reveal";
+import { SplitHeading } from "@/components/site/split-heading";
+import { SecNum } from "@/components/site/sec-num";
+import { Glitch } from "@/components/site/glitch";
+import { StatsStrip } from "@/components/site/stats-strip";
+import { RegionMap } from "@/components/site/region-map";
 
 export const metadata = {
   title: "About — Phase Systems",
@@ -32,47 +37,58 @@ const PILLARS = [
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 pt-12 md:pt-20 pb-16 md:pb-24">
-      <Reveal>
-        <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50">
-          About
+    <div className="w-full">
+      {/* HERO */}
+      <section className="relative overflow-hidden">
+        <div id="hero-grid" className="hero-grid" aria-hidden />
+        <div className="relative z-[2] mx-auto w-full max-w-6xl px-4 sm:px-6 pt-12 md:pt-20 pb-16 md:pb-24">
+          <SecNum label="01 — About" className="mb-6" />
+          <SplitHeading
+            as="h1"
+            className="font-display text-5xl sm:text-6xl md:text-7xl leading-[1.02] tracking-tight max-w-5xl"
+            delay={120}
+            step={90}
+          >
+            Built in{" "}
+            <Glitch className="text-[#7CFFA8] block sm:inline">
+              Des Moines.
+            </Glitch>{" "}
+            Built for what&apos;s next.
+          </SplitHeading>
+          <Reveal delay={500}>
+            <p className="mt-8 max-w-2xl text-base md:text-lg text-foreground/70 leading-relaxed">
+              Phase Systems is the data center vertical of Phase. We operate a
+              single, integrated stack — colocation, compute, network, hardware,
+              and security — out of central Iowa, where the grid, climate, and
+              fiber are built for the workloads of the next decade.
+            </p>
+          </Reveal>
         </div>
-      </Reveal>
-      <Reveal delay={80}>
-        <h1 className="font-display text-4xl md:text-6xl mt-3 leading-[1.05]">
-          Built in <span style={{ color: "#7CFFA8" }}>Des Moines</span>.
-          <br />
-          Built for what&apos;s next.
-        </h1>
-      </Reveal>
-      <Reveal delay={160}>
-        <p className="mt-8 max-w-2xl text-lg text-foreground/75 leading-relaxed">
-          Phase Systems is the data center vertical of Phase. We operate a
-          single, integrated stack — colocation, compute, network, hardware, and
-          security — out of central Iowa, where the grid, climate, and fiber are
-          built for the workloads of the next decade.
-        </p>
-      </Reveal>
+      </section>
 
       {/* PILLARS */}
-      <section className="mt-20">
-        <Reveal>
-          <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50">
-            Why Des Moines
-          </div>
-          <h2 className="font-display text-2xl md:text-3xl mt-3">
-            Four reasons. One zip code.
-          </h2>
-        </Reveal>
-        <div className="mt-10 grid md:grid-cols-2 gap-4">
+      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-20 md:pb-24">
+        <SecNum label="02 — Why Des Moines" className="mb-3" />
+        <SplitHeading
+          as="h2"
+          className="font-display text-3xl md:text-4xl mt-2"
+        >
+          Four reasons. One zip code.
+        </SplitHeading>
+        <div className="mt-12 grid md:grid-cols-2 gap-4">
           {PILLARS.map((p, i) => (
-            <Reveal key={p.label} delay={i * 60}>
-              <div className="border border-border bg-card/40 backdrop-blur-sm p-6">
-                <div className="font-mono text-xs" style={{ color: "#7CFFA8" }}>
+            <Reveal key={p.label} delay={i * 70}>
+              <div className="border border-border bg-[var(--bg-1)] p-6 md:p-7 h-full hover-elevate group">
+                <div
+                  className="font-mono text-[11px] tracking-[0.18em]"
+                  style={{ color: "#7CFFA8" }}
+                >
                   {p.label}
                 </div>
-                <div className="font-display text-xl mt-3">{p.title}</div>
-                <p className="text-sm text-foreground/70 mt-3 leading-relaxed">
+                <div className="font-display text-xl md:text-2xl mt-4">
+                  {p.title}
+                </div>
+                <p className="text-sm text-foreground/65 mt-3 leading-relaxed">
                   {p.body}
                 </p>
               </div>
@@ -81,17 +97,49 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* PHASE LABS */}
-      <section className="mt-20">
+      {/* REGION MAP */}
+      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-20 md:pb-24">
+        <SecNum label="03 — Midwest Reach" className="mb-3" />
+        <SplitHeading
+          as="h2"
+          className="font-display text-3xl md:text-4xl mt-2"
+        >
+          At the center, on purpose.
+        </SplitHeading>
+        <p className="mt-3 max-w-xl text-sm md:text-base text-foreground/65 leading-relaxed">
+          DSM-01 sits in the center of the Midwest fiber backbone. Indicative
+          round-trip times to major peering points.
+        </p>
+        <div className="mt-10">
+          <RegionMap />
+        </div>
+      </section>
+
+      {/* STATS */}
+      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-20 md:pb-24">
+        <SecNum label="04 — Facility" className="mb-3" />
+        <SplitHeading
+          as="h2"
+          className="font-display text-3xl md:text-4xl mt-2"
+        >
+          Designed for what&apos;s next.
+        </SplitHeading>
+        <div className="mt-10">
+          <StatsStrip />
+        </div>
+      </section>
+
+      {/* PARENT */}
+      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-20 md:pb-24">
         <Reveal>
-          <div className="border border-border bg-card/40 backdrop-blur-sm p-8 md:p-12">
+          <div className="border border-border bg-[var(--bg-1)] p-6 md:p-12">
             <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50">
               Parent Company
             </div>
             <h2 className="font-display text-2xl md:text-3xl mt-3">
-              A vertical of Phase
+              A vertical of <span style={{ color: "#7CFFA8" }}>Phase</span>
             </h2>
-            <p className="mt-5 max-w-2xl text-foreground/75 leading-relaxed">
+            <p className="mt-5 max-w-2xl text-foreground/70 leading-relaxed">
               Phase builds infrastructure across compute, finance, and software.
               Phase Systems is the bare-metal arm — the steel and fiber underneath
               everything else we ship.
@@ -109,22 +157,25 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="mt-20 text-center border-t border-border/60 pt-16">
+      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-24 md:pb-32 text-center">
         <Reveal>
-          <h3 className="font-display text-2xl md:text-4xl">
+          <SplitHeading
+            as="h3"
+            className="font-display text-2xl sm:text-3xl md:text-4xl"
+          >
             We&apos;re lighting up services in waves.
-          </h3>
-          <div className="mt-6 flex justify-center gap-3 flex-wrap">
+          </SplitHeading>
+          <div className="mt-8 flex justify-center gap-3 flex-wrap">
             <Link
               href="/waitlist"
-              className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3 hover-elevate"
+              className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3.5 hover-elevate"
               style={{ color: "#7CFFA8" }}
             >
               Join Waitlist →
             </Link>
             <Link
-              href="/services"
-              className="font-mono text-xs uppercase tracking-widest border border-border px-5 py-3 hover-elevate text-foreground/80"
+              href="/#services"
+              className="font-mono text-xs uppercase tracking-widest border border-border px-5 py-3.5 hover-elevate text-foreground/80 hover:text-foreground"
             >
               Browse Services
             </Link>

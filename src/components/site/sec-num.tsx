@@ -7,7 +7,16 @@ import { useEffect, useRef, useState } from "react";
  * Includes a blinking caret while typing, hidden when done.
  */
 
-export function SecNum({ children }: { children: string }) {
+export function SecNum({
+  children,
+  label,
+  className = "",
+}: {
+  children?: string;
+  label?: string;
+  className?: string;
+}) {
+  const source = (children ?? label ?? "").toString();
   const ref = useRef<HTMLDivElement | null>(null);
   const [text, setText] = useState("");
   const [done, setDone] = useState(false);
@@ -19,7 +28,7 @@ export function SecNum({ children }: { children: string }) {
       "(prefers-reduced-motion: reduce)"
     ).matches;
     if (reduce) {
-      setText(children);
+      setText(source);
       setDone(true);
       return;
     }
@@ -33,8 +42,8 @@ export function SecNum({ children }: { children: string }) {
             let i = 0;
             const tick = () => {
               i++;
-              setText(children.slice(0, i));
-              if (i >= children.length) {
+              setText(source.slice(0, i));
+              if (i >= source.length) {
                 setDone(true);
                 return;
               }
@@ -52,12 +61,12 @@ export function SecNum({ children }: { children: string }) {
       clearTimeout(raf);
       io.disconnect();
     };
-  }, [children]);
+  }, [source]);
 
   return (
     <div
       ref={ref}
-      className="sec-num font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50"
+      className={`sec-num font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50 ${className}`}
     >
       {text}
       {!done && <span className="sec-caret" />}
