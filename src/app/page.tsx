@@ -249,7 +249,16 @@ export default function HomePage() {
 
       {/* FINAL CTA */}
       <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-24 md:pb-32">
-        <div className="text-center py-14 md:py-20 border-t border-border/60">
+        <div
+          className="text-center py-14 md:py-20 relative"
+          style={{ borderTop: "1px solid var(--border)" }}
+        >
+          {/* center mint accent on divider */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 -top-px h-px w-24 -translate-x-1/2"
+            style={{ background: "var(--accent)" }}
+          />
           <SecNum label="06 — Get on the list" className="!justify-center inline-block" />
           <SplitHeading
             as="h3"
