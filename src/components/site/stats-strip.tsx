@@ -15,18 +15,22 @@ interface Stat {
   format?: (n: number) => string;
 }
 
-const STATS: Stat[] = [
-  { num: 6, label: "Verticals on roadmap" },
-  { num: 1, suffix: "GW", label: "Iowa grid headroom" },
-  { num: 100, suffix: "G", label: "Backbone fabric" },
-  { num: 24, suffix: "/7", label: "On-site operators" },
+interface StatExt extends Stat {
+  meta?: string;
+}
+
+const STATS: StatExt[] = [
+  { num: 6, label: "Verticals on roadmap", meta: "PHASE.SYS / 2026" },
+  { num: 1, suffix: "GW", label: "Iowa grid headroom", meta: "MISO REGION" },
+  { num: 100, suffix: "G", label: "Backbone fabric", meta: "TARGET" },
+  { num: 24, suffix: "/7", label: "On-site operators", meta: "DSM-01" },
 ];
 
 function easeOutCubic(t: number) {
   return 1 - Math.pow(1 - t, 3);
 }
 
-function StatCard({ stat, index }: { stat: Stat; index: number }) {
+function StatCard({ stat, index }: { stat: StatExt; index: number }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [value, setValue] = useState(0);
 
@@ -83,6 +87,12 @@ function StatCard({ stat, index }: { stat: Stat; index: number }) {
       <div className="stat-bar">
         <i style={{ width: `${(value / stat.num) * 100}%` }} />
       </div>
+      {stat.meta && (
+        <div className="stat-meta">
+          <span className="led led-pulse" style={{ width: 4, height: 4 }} />
+          {stat.meta}
+        </div>
+      )}
     </div>
   );
 }
