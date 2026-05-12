@@ -618,6 +618,14 @@ body.hover-link #cursor-ring {
   font-size: 13px;
   line-height: 1.85;
   min-height: 220px;
+  position: relative;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(245, 242, 236, 0.022) 0px,
+    rgba(245, 242, 236, 0.022) 1px,
+    transparent 1px,
+    transparent 3px
+  );
 }
 @media (max-width: 720px) {
   .term-body {
