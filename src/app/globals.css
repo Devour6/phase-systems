@@ -183,20 +183,23 @@
 }
 
 /* ============ WORD-RISE STAGGER ============ */
-.split .word {
+.split .sw {
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
-  margin-right: 0.18em;
+  line-height: 1.05;
 }
-.split .word > span {
+.split .sw-inner {
   display: inline-block;
   transform: translateY(110%);
-  transition: transform 900ms var(--ease-expo);
-  will-change: transform;
+  opacity: 0;
+  will-change: transform, opacity;
 }
-.split.is-visible .word > span {
-  transform: translateY(0);
+.split .sw-inner.sw-in {
+  animation: wordRise 0.9s var(--ease-expo) forwards;
+}
+@keyframes wordRise {
+  to { transform: translateY(0); opacity: 1; }
 }
 
 /* ============ GLITCH ON ACCENT HOVER ============ */
@@ -217,10 +220,12 @@
 }
 .glitch::before { color: #ff3366; }
 .glitch::after  { color: var(--accent); }
-.glitch.go::before {
+.glitch:hover::before,
+.glitch.glitch-pulse::before {
   animation: glitchA 0.5s steps(2) 1;
 }
-.glitch.go::after {
+.glitch:hover::after,
+.glitch.glitch-pulse::after {
   animation: glitchB 0.5s steps(2) 1;
 }
 @keyframes glitchA {
@@ -283,11 +288,128 @@
 }
 
 /* ============ BOOT OVERLAY ============ */
+#boot {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--bg-0);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+  text-transform: none;
+}
+#boot.gone {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.boot-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  min-width: 320px;
+  max-width: 90vw;
+  font-variant-numeric: tabular-nums;
+}
+.boot-line {
+  opacity: 0;
+  transform: translateX(-6px);
+  animation: bootIn 0.3s var(--ease-out) forwards;
+}
+.boot-line.ok::after {
+  content: " [OK]";
+  color: var(--text-1);
+  opacity: 0.6;
+}
+.boot-line.ready {
+  color: var(--text-1);
+  margin-top: var(--s-3);
+  letter-spacing: 0.04em;
+  font-family: var(--font-display);
+  font-size: 13px;
+  text-transform: uppercase;
+}
 @keyframes bootIn {
   to { opacity: 1; transform: translateX(0); }
 }
+.boot-bar {
+  margin-top: var(--s-4);
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  overflow: hidden;
+}
+.boot-bar-fill {
+  height: 100%;
+  width: 0;
+  background: var(--text-1);
+  animation: bootFill 1.6s var(--ease-expo) 0.15s forwards;
+}
 @keyframes bootFill {
   to { width: 100%; }
+}
+
+/* ============ CUSTOM CURSOR ============ */
+#cursor-dot,
+#cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-100px, -100px);
+  will-change: transform;
+  display: none;
+}
+body.custom-cursor-on {
+  cursor: none;
+}
+body.custom-cursor-on #cursor-dot,
+body.custom-cursor-on #cursor-ring {
+  display: block;
+}
+body.custom-cursor-on a,
+body.custom-cursor-on button,
+body.custom-cursor-on [role="button"],
+body.custom-cursor-on input,
+body.custom-cursor-on textarea,
+body.custom-cursor-on select,
+body.custom-cursor-on .service {
+  cursor: none;
+}
+#cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50% !important;
+  box-shadow: 0 0 8px var(--accent);
+}
+#cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--accent);
+  border-radius: 50% !important;
+  opacity: 0.7;
+  transition:
+    width var(--dur-fast) var(--ease-out),
+    height var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out),
+    opacity var(--dur-fast) var(--ease-out);
+}
+body.hover-link #cursor-ring {
+  width: 56px;
+  height: 56px;
+  background: var(--accent-dim);
+}
+@media (hover: none) {
+  body.custom-cursor-on { cursor: auto; }
+  #cursor-dot, #cursor-ring { display: none !important; }
+}
+
+/* The led / dot / ring shapes should keep their radius */
+.led, #cursor-dot, #cursor-ring {
+  border-radius: 50% !important;
 }
 
 /* ============ CARET BLINK ============ */

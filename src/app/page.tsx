@@ -3,6 +3,8 @@ import Image from "next/image";
 import { SERVICES } from "@/lib/services";
 import { ServiceRow } from "@/components/site/service-row";
 import { Reveal } from "@/components/site/reveal";
+import { SplitHeading } from "@/components/site/split-heading";
+import { Glitch } from "@/components/site/glitch";
 
 export default function HomePage() {
   return (
@@ -18,13 +20,17 @@ export default function HomePage() {
                 Des Moines · Iowa
               </div>
             </Reveal>
-            <Reveal delay={80}>
-              <h1 className="font-display text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-wide">
-                PHASE
-                <br />
-                <span style={{ color: "#7CFFA8" }}>SYSTEMS</span>
-              </h1>
-            </Reveal>
+            <SplitHeading
+              as="h1"
+              className="font-display text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-wide"
+              delay={120}
+              step={90}
+            >
+              PHASE{" "}
+              <Glitch className="text-[#7CFFA8] block sm:inline">
+                SYSTEMS
+              </Glitch>
+            </SplitHeading>
             <Reveal delay={160}>
               <p className="mt-8 max-w-xl text-lg md:text-xl text-foreground/75 leading-relaxed">
                 Built for the next generation of compute. Cloud, colocation,
