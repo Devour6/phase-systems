@@ -54,14 +54,13 @@ export default function HomePage() {
             <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
               <Link
                 href="/waitlist"
-                className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3.5 hover-elevate text-center"
-                style={{ color: "#7CFFA8" }}
+                className="btn-primary hover-elevate"
               >
                 Join the Waitlist →
               </Link>
               <a
                 href="#services"
-                className="font-mono text-xs uppercase tracking-widest border border-border px-5 py-3.5 hover-elevate text-foreground/80 hover:text-foreground text-center"
+                className="btn-secondary hover-elevate"
               >
                 Explore Services
               </a>
