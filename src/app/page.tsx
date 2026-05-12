@@ -241,6 +241,13 @@ export default function HomePage() {
                   <span aria-hidden className="pointer-events-none absolute bottom-2 left-2 w-3 h-3 border-b border-l border-[#7CFFA8]/70" />
                   <span aria-hidden className="pointer-events-none absolute bottom-2 right-2 w-3 h-3 border-b border-r border-[#7CFFA8]/70" />
                 </div>
+                <figcaption className="mt-3 flex items-center justify-between font-mono text-[9.5px] uppercase tracking-[0.22em] text-foreground/45">
+                  <span className="inline-flex items-center gap-2">
+                    <span className="led led-pulse" style={{ width: 4, height: 4 }} />
+                    DSM-01 / FACILITY-A
+                  </span>
+                  <span>41.6867°N · 93.5988°W</span>
+                </figcaption>
               </figure>
             </div>
           </div>
