@@ -72,6 +72,26 @@ export function VizInternet() {
             filter: "drop-shadow(0 0 6px rgba(124,255,168,0.45))",
           }}
         />
+        {/* perimeter packet dots (4 around the dial, on heartbeat offsets) */}
+        {[0, 1, 2, 3].map((i) => {
+          const a = (i / 4) * Math.PI * 2 - Math.PI / 2;
+          const x = 90 + Math.cos(a) * 80;
+          const y = 90 + Math.sin(a) * 80;
+          return (
+            <circle
+              key={i}
+              cx={x}
+              cy={y}
+              r="1.4"
+              fill="#7CFFA8"
+              opacity="0.85"
+              style={{
+                animation: `bwPacket 2.4s ease-in-out ${i * 0.6}s infinite`,
+                transformOrigin: "center",
+              }}
+            />
+          );
+        })}
         <text x="90" y="86" className="bw-bignum" textAnchor="middle">
           {gbps}
         </text>

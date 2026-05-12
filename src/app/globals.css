@@ -1428,6 +1428,12 @@ input::placeholder, textarea::placeholder {
   opacity: 0.6;
 }
 
+/* ============ BANDWIDTH PACKET PULSE ============ */
+@keyframes bwPacket {
+  0%, 100% { opacity: 0.35; transform: scale(0.7); }
+  50%      { opacity: 1; transform: scale(1.4); filter: drop-shadow(0 0 4px rgba(124,255,168,0.9)); }
+}
+
 /* ============ NORMAL CASE ESCAPE HATCH ============ */
 .normal-case { text-transform: none !important; }
 
