@@ -71,8 +71,9 @@ export default function HomePage() {
           {/* HUD gauges */}
           <div className="mt-12 md:mt-16">
             <Reveal>
-              <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/40 mb-3">
-                Facility Telemetry · [demo]
+              <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/45 mb-4 inline-flex items-center gap-2">
+                <span className="led led-pulse" />
+                // Facility Telemetry · [demo]
               </div>
             </Reveal>
             <Reveal delay={120}>
@@ -82,6 +83,12 @@ export default function HomePage() {
 
           {/* Terminal */}
           <div className="mt-10 md:mt-12">
+            <Reveal>
+              <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/45 mb-3 inline-flex items-center gap-2">
+                <span className="led led-pulse" />
+                // Ops Shell · DSM-01
+              </div>
+            </Reveal>
             <HeroTerminal />
           </div>
         </div>
