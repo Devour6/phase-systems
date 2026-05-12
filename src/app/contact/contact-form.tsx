@@ -62,7 +62,7 @@ export function ContactForm() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full bg-background/60 border border-border px-3 py-3 font-mono text-base md:text-sm focus:outline-none focus:border-[#7CFFA8]"
+            className="w-full px-3 py-3 text-base md:text-sm tracking-normal"
             placeholder="you@company.com"
           />
         </div>
@@ -74,7 +74,7 @@ export function ContactForm() {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full bg-background/60 border border-border px-3 py-3 font-mono text-base md:text-sm focus:outline-none focus:border-[#7CFFA8]"
+            className="w-full px-3 py-3 text-base md:text-sm tracking-normal"
           />
         </div>
       </div>
@@ -87,7 +87,7 @@ export function ContactForm() {
           type="text"
           value={company}
           onChange={(e) => setCompany(e.target.value)}
-          className="w-full bg-background/60 border border-border px-3 py-2.5 font-mono text-sm focus:outline-none focus:border-[#7CFFA8]"
+          className="w-full px-3 py-3 text-base md:text-sm tracking-normal"
         />
       </div>
 
@@ -100,7 +100,7 @@ export function ContactForm() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={5}
-          className="w-full bg-background/60 border border-border px-3 py-3 font-mono text-base md:text-sm focus:outline-none focus:border-[#7CFFA8] resize-none"
+          className="w-full px-3 py-3 text-base md:text-sm tracking-normal resize-none"
           placeholder="Workload, scale, timeline, anything else useful…"
         />
       </div>
@@ -108,7 +108,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3 hover-elevate disabled:opacity-60"
+        className="w-full font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3.5 hover-elevate disabled:opacity-60"
         style={{ color: "#7CFFA8" }}
       >
         {status === "submitting" ? "Sending…" : "Send Message →"}

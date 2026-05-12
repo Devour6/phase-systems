@@ -1,10 +1,45 @@
 "use client";
 
-// Radar sweep with 3 blips + 4 cert badges.
+// Radar sweep with 3 blips + 4 design-target cert badges (staggered fade-in).
+// Badges are clearly labeled as targets — Phase Systems is NOT yet certified.
+
+import { useEffect, useRef } from "react";
+
+const BADGES = ["SOC 2", "PCI DSS", "HIPAA", "ISO 27001"];
 
 export function VizCybersecurity() {
+  const wrapRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    const badges = el.querySelectorAll<HTMLElement>(".cert-badge");
+    if (reduce) {
+      badges.forEach((b) => b.classList.add("in"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            badges.forEach((b, i) => {
+              setTimeout(() => b.classList.add("in"), i * 120);
+            });
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <div className="radar-wrap">
+    <div className="radar-wrap" ref={wrapRef}>
       <svg className="radar-svg" viewBox="0 0 100 100">
         <defs>
           <linearGradient id="sweepGrad" x1="0" y1="0" x2="1" y2="0">
@@ -45,11 +80,15 @@ export function VizCybersecurity() {
         <circle cx="50" cy="50" r="1.6" fill="#7CFFA8" />
       </svg>
 
-      <div className="cert-grid">
-        <div className="cert-badge in">SOC 2</div>
-        <div className="cert-badge in">PCI DSS</div>
-        <div className="cert-badge in">HIPAA</div>
-        <div className="cert-badge in">ISO 27001</div>
+      <div className="cert-meta">
+        <div className="cert-meta-label">// Compliance targets</div>
+        <div className="cert-grid">
+          {BADGES.map((b) => (
+            <div key={b} className="cert-badge">
+              {b}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

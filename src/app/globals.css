@@ -1431,6 +1431,16 @@ input::placeholder, textarea::placeholder {
 /* ============ NORMAL CASE ESCAPE HATCH ============ */
 .normal-case { text-transform: none !important; }
 
+/* ============ CYBERSECURITY CERT META ============ */
+.cert-meta { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.cert-meta-label {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--text-3);
+  text-transform: uppercase;
+}
+
 /* ============ REDUCED MOTION ============ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

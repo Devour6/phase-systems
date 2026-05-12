@@ -75,7 +75,7 @@ export function WaitlistForm() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full bg-background/60 border border-border px-3 py-3 font-mono text-base md:text-sm focus:outline-none focus:border-[#7CFFA8]"
+          className="w-full px-3 py-3 text-base md:text-sm tracking-normal"
           placeholder="you@company.com"
         />
       </div>
@@ -89,7 +89,7 @@ export function WaitlistForm() {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full bg-background/60 border border-border px-3 py-3 font-mono text-base md:text-sm focus:outline-none focus:border-[#7CFFA8]"
+            className="w-full px-3 py-3 text-base md:text-sm tracking-normal"
           />
         </div>
         <div>
@@ -100,7 +100,7 @@ export function WaitlistForm() {
             type="text"
             value={company}
             onChange={(e) => setCompany(e.target.value)}
-            className="w-full bg-background/60 border border-border px-3 py-3 font-mono text-base md:text-sm focus:outline-none focus:border-[#7CFFA8]"
+            className="w-full px-3 py-3 text-base md:text-sm tracking-normal"
           />
         </div>
       </div>
@@ -117,15 +117,23 @@ export function WaitlistForm() {
                 key={s.slug}
                 type="button"
                 onClick={() => toggle(s.slug)}
-                className="text-left border px-3 py-3 transition-colors"
+                className="text-left border px-3 py-3 transition-colors flex items-center gap-2"
                 style={{
-                  borderColor: active ? "#7CFFA8" : "rgba(243,238,217,0.1)",
+                  borderColor: active ? "#7CFFA8" : "var(--border)",
                   background: active
                     ? "rgba(124,255,168,0.06)"
-                    : "transparent",
-                  color: active ? "#7CFFA8" : "rgba(243,238,217,0.85)",
+                    : "var(--bg-2)",
+                  color: active ? "#7CFFA8" : "var(--text-1)",
                 }}
               >
+                <span
+                  className="inline-block w-1.5 h-1.5"
+                  style={{
+                    background: active ? "#7CFFA8" : "var(--text-3)",
+                    boxShadow: active ? "0 0 5px rgba(124,255,168,0.85)" : "none",
+                  }}
+                  aria-hidden
+                />
                 <span className="font-mono text-xs uppercase tracking-wider">
                   {s.title}
                 </span>
@@ -138,7 +146,7 @@ export function WaitlistForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3 hover-elevate disabled:opacity-60"
+        className="w-full font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3.5 hover-elevate disabled:opacity-60"
         style={{ color: "#7CFFA8" }}
       >
         {status === "submitting" ? "Submitting…" : "Join Waitlist →"}

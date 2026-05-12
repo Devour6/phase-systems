@@ -187,12 +187,13 @@ export default function HomePage() {
         <Reveal>
           <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
             <div className="md:col-span-7 order-2 md:order-1">
-              <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50">
-                On-site
-              </div>
-              <h3 className="font-display text-2xl md:text-4xl mt-3 leading-tight">
+              <SecNum>05 — On-site</SecNum>
+              <SplitHeading
+                as="h3"
+                className="font-display text-2xl md:text-4xl mt-3 leading-tight"
+              >
                 Real hardware. Real fiber. Real Iowa.
-              </h3>
+              </SplitHeading>
               <p className="mt-4 max-w-md text-sm md:text-base text-foreground/70 leading-relaxed">
                 Phase Systems builds what it operates. Every rack, switch, and
                 cross-connect is owned, racked, and run by us — out of one
@@ -226,29 +227,35 @@ export default function HomePage() {
 
       {/* FINAL CTA */}
       <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-24 md:pb-32">
-        <Reveal>
-          <div className="text-center py-14 md:py-20 border-t border-border/60">
-            <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50">
-              Get on the list
-            </div>
-            <h3 className="font-display text-3xl md:text-5xl mt-4 leading-tight">
-              We&apos;re building. Be first in line.
-            </h3>
-            <p className="mt-5 max-w-xl mx-auto text-foreground/70">
+        <div className="text-center py-14 md:py-20 border-t border-border/60">
+          <SecNum label="// Get on the list" className="!justify-center inline-block" />
+          <SplitHeading
+            as="h3"
+            className="font-display text-3xl md:text-5xl mt-5 leading-tight"
+          >
+            We&apos;re building.{" "}
+            <Glitch className="text-[#7CFFA8] inline-block">
+              Be first in line.
+            </Glitch>
+          </SplitHeading>
+          <Reveal delay={400}>
+            <p className="mt-6 max-w-xl mx-auto text-foreground/65 leading-relaxed">
               Phase Systems is opening services in waves. Drop your email and
               we&apos;ll let you know when your vertical is live.
             </p>
+          </Reveal>
+          <Reveal delay={520}>
             <div className="mt-8">
               <Link
                 href="/waitlist"
-                className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-6 py-3 hover-elevate inline-block"
+                className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-6 py-3.5 hover-elevate inline-block"
                 style={{ color: "#7CFFA8" }}
               >
                 Join the Waitlist →
               </Link>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </section>
     </div>
   );
