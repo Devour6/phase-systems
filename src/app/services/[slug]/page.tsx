@@ -6,6 +6,7 @@ import { SplitHeading } from "@/components/site/split-heading";
 import { SecNum } from "@/components/site/sec-num";
 import { VIZ_BY_SLUG } from "@/components/site/viz";
 import { Glitch } from "@/components/site/glitch";
+import { Tilt } from "@/components/site/tilt";
 
 export function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
@@ -103,9 +104,11 @@ export default async function ServicePage({
             {/* RIGHT — live viz */}
             <div className="md:col-span-5">
               <Reveal delay={300}>
-                <div className="service-hero-viz">
-                  {Viz ? <Viz /> : null}
-                </div>
+                <Tilt max={3}>
+                  <div className="service-hero-viz">
+                    {Viz ? <Viz /> : null}
+                  </div>
+                </Tilt>
               </Reveal>
             </div>
           </div>
