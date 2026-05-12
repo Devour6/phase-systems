@@ -46,15 +46,11 @@ export default function GlobalError({
         <button
           type="button"
           onClick={() => reset()}
-          className="font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3.5 hover-elevate"
-          style={{ color: "#7CFFA8" }}
+          className="btn-primary hover-elevate"
         >
           ↺ Retry
         </button>
-        <Link
-          href="/"
-          className="font-mono text-xs uppercase tracking-widest border border-border px-5 py-3.5 hover-elevate text-foreground/80 hover:text-foreground"
-        >
+        <Link href="/" className="btn-secondary hover-elevate">
           Back home
         </Link>
       </div>
