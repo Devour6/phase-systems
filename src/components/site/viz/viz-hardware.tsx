@@ -30,6 +30,13 @@ export function VizHardware() {
             strokeDasharray="2 4"
           />
         ))}
+        {/* HBM-to-die interconnect traces (subtle, mint, pulse) */}
+        <g className="hw-traces">
+          <line x1="100" y1="65" x2="110" y2="68" stroke="rgba(124,255,168,0.5)" strokeWidth="0.4" />
+          <line x1="100" y1="115" x2="110" y2="92" stroke="rgba(124,255,168,0.5)" strokeWidth="0.4" />
+          <line x1="200" y1="65" x2="170" y2="68" stroke="rgba(124,255,168,0.5)" strokeWidth="0.4" />
+          <line x1="200" y1="115" x2="170" y2="92" stroke="rgba(124,255,168,0.5)" strokeWidth="0.4" />
+        </g>
         {/* central die */}
         <rect
           x="110"
@@ -39,6 +46,8 @@ export function VizHardware() {
           fill="#0F0F0E"
           stroke="rgba(124,255,168,0.45)"
           strokeWidth="1"
+          className="hw-die"
+          style={{ animation: "hwDiePulse 2.4s ease-in-out infinite" }}
         />
         <text
           x="140"
