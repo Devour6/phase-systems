@@ -234,6 +234,7 @@ export default function HomePage() {
                     alt="Phase Systems server rack — Des Moines, Iowa"
                     width={1200}
                     height={1472}
+                    sizes="(min-width: 768px) 41vw, 100vw"
                     className="block w-full h-auto"
                   />
                   <span aria-hidden className="pointer-events-none absolute top-2 left-2 w-3 h-3 border-t border-l border-[#7CFFA8]/70" />
