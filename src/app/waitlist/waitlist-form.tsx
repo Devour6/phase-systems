@@ -48,15 +48,27 @@ export function WaitlistForm() {
 
   if (status === "success") {
     return (
-      <div className="text-center py-8">
+      <div className="text-center py-10">
         <div
-          className="mx-auto h-12 w-12 border flex items-center justify-center"
+          className="mx-auto h-12 w-12 border flex items-center justify-center font-mono text-base"
           style={{ borderColor: "#7CFFA8", color: "#7CFFA8" }}
         >
           ✓
         </div>
-        <h2 className="font-display text-2xl mt-5">You&apos;re on the list.</h2>
-        <p className="text-foreground/70 mt-3">
+        <div className="mt-6 font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/45 inline-flex items-center gap-2">
+          <span
+            className="inline-block w-1.5 h-1.5"
+            style={{
+              background: "#7CFFA8",
+              boxShadow: "0 0 6px rgba(124,255,168,0.85)",
+            }}
+          />
+          // STATUS / RECEIVED
+        </div>
+        <h2 className="font-display text-2xl md:text-3xl mt-4">
+          You&apos;re on the list.
+        </h2>
+        <p className="text-foreground/65 mt-3 max-w-md mx-auto leading-relaxed">
           We&apos;ll reach out from an Iowa-area-code number when your services
           are live.
         </p>
