@@ -78,11 +78,12 @@ export default function AboutPage() {
         <div className="mt-12 grid md:grid-cols-2 gap-4">
           {PILLARS.map((p, i) => (
             <Reveal key={p.label} delay={i * 70}>
-              <div className="border border-border bg-[var(--bg-1)] p-6 md:p-7 h-full hover-elevate group">
+              <div className="border border-border bg-[var(--bg-1)] p-6 md:p-7 h-full hover-elevate group flex flex-col">
                 <div
-                  className="font-mono text-[11px] tracking-[0.18em]"
+                  className="font-mono text-[11px] tracking-[0.18em] inline-flex items-center gap-2"
                   style={{ color: "#7CFFA8" }}
                 >
+                  <span className="led led-pulse" />
                   {p.label}
                 </div>
                 <div className="font-display text-xl md:text-2xl mt-4">
