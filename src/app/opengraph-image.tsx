@@ -18,18 +18,18 @@ async function loadFont(family: string, url: string): Promise<ArrayBuffer> {
 }
 
 export default async function OG() {
-  const [audiowide, outfit, kodeMono, logoBuf] = await Promise.all([
+  const [audiowide, outfit, outfitBold, logoBuf] = await Promise.all([
     loadFont(
       "Audiowide",
       "https://fonts.gstatic.com/s/audiowide/v20/l7gdbjpo0cum0ckerWCdlg_O.ttf"
     ),
     loadFont(
-      "Outfit:wght@400;600",
+      "Outfit:wght@400",
       "https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqkA.ttf"
     ),
     loadFont(
-      "Kode+Mono",
-      "https://fonts.gstatic.com/s/kodemono/v2/A2BLn5pb0QgtVEPFnlYkkaoBgw4qv9odq5myxDqQzdBP.ttf"
+      "Outfit:wght@600",
+      "https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqkA.ttf"
     ),
     readFile(join(process.cwd(), "public", "logo-mark-512.png")),
   ]);
@@ -44,8 +44,8 @@ export default async function OG() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          background: "#0F0E0C",
-          color: "#F3EED9",
+          background: "#0F0F0E",
+          color: "#F5F2EC",
           padding: 64,
           position: "relative",
           fontFamily: "Outfit",
@@ -72,7 +72,7 @@ export default async function OG() {
             left: 32,
             right: 32,
             bottom: 32,
-            border: "1px solid rgba(243,238,217,0.12)",
+            border: "1px solid rgba(245,242,236,0.12)",
             display: "flex",
           }}
         />
@@ -83,10 +83,11 @@ export default async function OG() {
             display: "flex",
             alignItems: "center",
             gap: 12,
-            fontFamily: "Kode Mono",
-            fontSize: 20,
+            fontFamily: "Outfit",
+            fontWeight: 600,
+            fontSize: 18,
             letterSpacing: 6,
-            color: "rgba(243,238,217,0.55)",
+            color: "rgba(245,242,236,0.55)",
             textTransform: "uppercase",
           }}
         >
@@ -119,7 +120,7 @@ export default async function OG() {
                 fontFamily: "Audiowide",
                 fontSize: 110,
                 letterSpacing: 4,
-                color: "#F3EED9",
+                color: "#F5F2EC",
               }}
             >
               PHASE
@@ -144,7 +145,7 @@ export default async function OG() {
             marginTop: "auto",
             fontFamily: "Outfit",
             fontSize: 28,
-            color: "rgba(243,238,217,0.75)",
+            color: "rgba(245,242,236,0.75)",
           }}
         >
           Built for the next generation of compute.
@@ -156,10 +157,11 @@ export default async function OG() {
             display: "flex",
             justifyContent: "space-between",
             marginTop: 20,
-            fontFamily: "Kode Mono",
+            fontFamily: "Outfit",
+            fontWeight: 600,
             fontSize: 16,
             letterSpacing: 3,
-            color: "rgba(243,238,217,0.45)",
+            color: "rgba(245,242,236,0.45)",
             textTransform: "uppercase",
           }}
         >
@@ -173,7 +175,7 @@ export default async function OG() {
       fonts: [
         { name: "Audiowide", data: audiowide, weight: 400, style: "normal" },
         { name: "Outfit", data: outfit, weight: 400, style: "normal" },
-        { name: "Kode Mono", data: kodeMono, weight: 400, style: "normal" },
+        { name: "Outfit", data: outfitBold, weight: 600, style: "normal" },
       ],
     }
   );

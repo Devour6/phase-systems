@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Audiowide, Outfit, Kode_Mono } from "next/font/google";
+import { Audiowide, Outfit } from "next/font/google";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SiteNav } from "@/components/site/site-nav";
 import { SiteFooter } from "@/components/site/site-footer";
@@ -9,7 +9,7 @@ import "./globals.css";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0F0E0C",
+  themeColor: "#0F0F0E",
   colorScheme: "dark",
 };
 
@@ -23,12 +23,6 @@ const audiowide = Audiowide({
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
-  display: "swap",
-});
-
-const kodeMono = Kode_Mono({
-  subsets: ["latin"],
-  variable: "--font-kode-mono",
   display: "swap",
 });
 
@@ -57,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${audiowide.variable} ${outfit.variable} ${kodeMono.variable} antialiased relative min-h-screen`}
+        className={`${audiowide.variable} ${outfit.variable} antialiased relative min-h-screen`}
       >
         <AuroraBackground />
         <TooltipProvider>
