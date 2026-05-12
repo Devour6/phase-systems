@@ -1412,16 +1412,23 @@ body.hover-link #cursor-ring {
   background: var(--bg-1);
   border: 1px solid var(--border);
   padding: var(--s-5);
-  min-height: 320px;
+  min-height: 360px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: stretch;
   transition: border-color var(--dur-base) var(--ease-out),
               background var(--dur-base) var(--ease-out);
 }
 .service-hero-viz:hover {
   border-color: var(--accent-glow);
   background: var(--bg-2);
+}
+.service-hero-viz > * {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
 }
 
 /* ============ FORM SURFACES (editorial dark) ============ */
