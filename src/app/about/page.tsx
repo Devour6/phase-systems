@@ -132,14 +132,24 @@ export default function AboutPage() {
       {/* PARENT */}
       <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-20 md:pb-24">
         <Reveal>
-          <div className="border border-border bg-[var(--bg-1)] p-6 md:p-12">
-            <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50">
-              Parent Company
+          <div className="border border-border bg-[var(--bg-1)] p-6 md:p-12 relative overflow-hidden">
+            {/* mint corner accent */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute top-0 left-0 h-12 w-12"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(124,255,168,0.18), rgba(124,255,168,0) 70%)",
+              }}
+            />
+            <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50 inline-flex items-center gap-2">
+              <span className="led led-pulse" />
+              // Parent Company
             </div>
-            <h2 className="font-display text-2xl md:text-3xl mt-3">
+            <h2 className="font-display text-2xl md:text-3xl mt-4">
               A vertical of <span style={{ color: "#7CFFA8" }}>Phase</span>
             </h2>
-            <p className="mt-5 max-w-2xl text-foreground/70 leading-relaxed">
+            <p className="mt-5 max-w-2xl text-foreground/65 leading-relaxed">
               Phase builds infrastructure across compute, finance, and software.
               Phase Systems is the bare-metal arm — the steel and fiber underneath
               everything else we ship.
@@ -148,9 +158,9 @@ export default function AboutPage() {
               href="https://phase.cc"
               target="_blank"
               rel="noreferrer"
-              className="mt-6 inline-block font-mono text-xs uppercase tracking-widest text-[#7CFFA8] hover:underline"
+              className="mt-7 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#7CFFA8] hover:underline"
             >
-              phase.cc ↗
+              phase.cc <span aria-hidden>↗</span>
             </a>
           </div>
         </Reveal>
