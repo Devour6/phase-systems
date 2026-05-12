@@ -73,19 +73,22 @@ export function HeroHudPills() {
 
   return (
     <div className="hud-strip">
-      <div className="hud-pill">
+      <div className="hud-pill hud-pill-in" style={{ animationDelay: "0ms" }}>
         <span className="hud-pill-dot" />
         <span>Phase Systems · DSM-01 · <b>online</b></span>
       </div>
-      <div className={`hud-pill status ${status.c}`}>
+      <div
+        className={`hud-pill hud-pill-in status ${status.c}`}
+        style={{ animationDelay: "100ms" }}
+      >
         <span className="hud-pill-dot" />
         <span className="lbl">status:</span>{" "}
         <span className="stat-text">{status.t}</span>
       </div>
-      <div className="hud-pill">
+      <div className="hud-pill hud-pill-in" style={{ animationDelay: "200ms" }}>
         <span className="lbl">build:</span> <b>v0.4.2 [demo]</b>
       </div>
-      <div className="hud-pill">
+      <div className="hud-pill hud-pill-in" style={{ animationDelay: "300ms" }}>
         <span className="lbl">counter:</span> <b>{counter || "—"}</b>
       </div>
     </div>
