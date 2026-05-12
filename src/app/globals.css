@@ -804,6 +804,13 @@ body.hover-link #cursor-ring {
   fill: rgba(124,255,168,0.08);
   stroke: rgba(124,255,168,0.7);
   stroke-width: 1.4;
+  animation: hexBreath 3.6s ease-in-out infinite;
+}
+.hex-active:nth-child(2n) polygon { animation-delay: 0.6s; }
+.hex-active:nth-child(3n) polygon { animation-delay: 1.2s; }
+@keyframes hexBreath {
+  0%, 100% { stroke-opacity: 0.55; }
+  50%      { stroke-opacity: 1; }
 }
 .hex-led {
   fill: var(--accent);
