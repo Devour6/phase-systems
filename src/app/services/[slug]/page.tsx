@@ -129,11 +129,12 @@ export default async function ServicePage({
             <Reveal key={f.title} delay={i * 70}>
               <div className="border border-border bg-[var(--bg-1)] p-6 h-full hover-elevate group">
                 <div
-                  className="font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/45 group-hover:text-[#7CFFA8] transition-colors"
+                  className="font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/45 group-hover:text-[#7CFFA8] transition-colors inline-flex items-center gap-2"
                 >
+                  <span className="led led-pulse" />
                   / {String(i + 1).padStart(2, "0")}
                 </div>
-                <div className="font-display text-lg md:text-xl mt-3">
+                <div className="font-display text-lg md:text-xl mt-3 group-hover:text-[#F5F2EC] transition-colors">
                   {f.title}
                 </div>
                 <p className="text-sm text-foreground/65 mt-3 leading-relaxed">
