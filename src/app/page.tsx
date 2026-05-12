@@ -100,7 +100,7 @@ export default function HomePage() {
         className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-20 md:pb-24 scroll-mt-20"
       >
         <Reveal>
-          <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
+          <div className="flex items-end justify-between mb-8 flex-wrap gap-4">
             <div>
               <SecNum label="02 — Services" />
               <SplitHeading
@@ -114,6 +114,20 @@ export default function HomePage() {
                 or take the whole rack.
               </p>
             </div>
+          </div>
+        </Reveal>
+        <Reveal delay={80}>
+          <div className="tier-label flex items-center gap-3 mb-8 pt-4 border-t border-border/60">
+            <span className="led led-pulse" style={{ width: 5, height: 5 }} />
+            <span
+              className="font-mono text-[10px] uppercase tracking-[0.28em]"
+              style={{ color: "#7CFFA8" }}
+            >
+              // BUILDING NOW · WAITLIST OPEN
+            </span>
+            <span className="ml-auto font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/40">
+              06 VERTICALS
+            </span>
           </div>
         </Reveal>
         <Reveal delay={120}>
