@@ -29,8 +29,8 @@ export function SiteFooter() {
           </p>
         </div>
         <div>
-          <div className="font-mono text-[11px] uppercase tracking-widest text-foreground/50 mb-3">
-            Services
+          <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/45 mb-4">
+            // Services
           </div>
           <ul className="space-y-2 text-sm">
             <li><Link href="/services/virtualization" className="hover:text-[#7CFFA8]">Virtualization</Link></li>
@@ -42,8 +42,8 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <div className="font-mono text-[11px] uppercase tracking-widest text-foreground/50 mb-3">
-            Company
+          <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/45 mb-4">
+            // Company
           </div>
           <ul className="space-y-2 text-sm">
             <li><Link href="/about" className="hover:text-[#7CFFA8]">About</Link></li>
@@ -63,9 +63,12 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-border/60">
-        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 font-mono text-[11px] uppercase tracking-widest text-foreground/50">
-          <span>© {new Date().getFullYear()} Phase Systems</span>
-          <span>Des Moines · Iowa · 41.6867° N, 93.5988° W</span>
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/45">
+          <span className="inline-flex items-center gap-2">
+            <span className="led led-pulse" style={{ width: 4, height: 4 }} />
+            © {new Date().getFullYear()} Phase Systems
+          </span>
+          <span>Des Moines · Iowa · 41.6867° N · 93.5988° W</span>
         </div>
       </div>
     </footer>
