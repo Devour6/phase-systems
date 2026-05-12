@@ -142,7 +142,7 @@ export function HeroHudGauges() {
 
   return (
     <div className="hud-grid">
-      <div className="hud-card">
+      <div className="hud-card hud-card-in">
         <div className="hud-lbl">CPU LOAD <span className="hud-demo">[demo]</span></div>
         <div className="hud-val">
           <span>{Math.round(cpu)}</span>
@@ -152,7 +152,7 @@ export function HeroHudGauges() {
           <div ref={cpuFillRef} className="hud-gauge-fill" />
         </div>
       </div>
-      <div className="hud-card">
+      <div className="hud-card hud-card-in">
         <div className="hud-lbl">MEM <span className="hud-demo">[demo]</span></div>
         <div className="hud-val">
           <span>{Math.round(mem)}</span>
@@ -162,7 +162,7 @@ export function HeroHudGauges() {
           <div ref={memFillRef} className="hud-gauge-fill" />
         </div>
       </div>
-      <div className="hud-card">
+      <div className="hud-card hud-card-in">
         <div className="hud-lbl">NET <span className="hud-demo">[demo]</span></div>
         <div className="hud-val">
           <span>{Math.round(net)}</span>
@@ -175,7 +175,7 @@ export function HeroHudGauges() {
           preserveAspectRatio="none"
         />
       </div>
-      <div className="hud-card">
+      <div className="hud-card hud-card-in">
         <div className="hud-lbl">PKT/S <span className="hud-demo">[demo]</span></div>
         <div className="hud-val">
           <span>{fmt(pkt)}</span>
