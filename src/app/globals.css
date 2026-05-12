@@ -1569,6 +1569,10 @@ input::placeholder, textarea::placeholder {
 /* ============ NORMAL CASE ESCAPE HATCH ============ */
 .normal-case { text-transform: none !important; }
 
+/* Suppress default disclosure triangle in details/summary across browsers */
+summary::-webkit-details-marker { display: none; }
+summary { list-style: none; }
+
 /* ============ CYBERSECURITY CERT META ============ */
 .cert-meta { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
 .cert-meta-label {
