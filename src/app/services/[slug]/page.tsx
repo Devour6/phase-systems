@@ -158,10 +158,12 @@ export default async function ServicePage({
         <div className="mt-10 divide-y divide-border/60 border-y border-border/60">
           {service.faq.map((item) => (
             <details key={item.q} className="group py-5">
-              <summary className="cursor-pointer flex items-center justify-between gap-4">
-                <span className="font-display text-base md:text-lg">{item.q}</span>
+              <summary className="cursor-pointer flex items-center justify-between gap-4 list-none">
+                <span className="font-display text-base md:text-lg group-hover:text-[#7CFFA8] group-open:text-[#7CFFA8] transition-colors">
+                  {item.q}
+                </span>
                 <span
-                  className="font-mono text-[12px] tracking-widest text-foreground/50 group-open:text-[#7CFFA8] group-open:rotate-45 transition-all duration-200"
+                  className="font-mono text-[14px] tracking-widest text-foreground/50 group-hover:text-[#7CFFA8] group-open:text-[#7CFFA8] group-open:rotate-45 transition-all duration-200 flex-shrink-0"
                 >
                   +
                 </span>
