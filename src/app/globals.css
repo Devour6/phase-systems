@@ -1484,6 +1484,15 @@ input::placeholder, textarea::placeholder {
   50%      { opacity: 1; transform: scale(1.4); filter: drop-shadow(0 0 4px rgba(124,255,168,0.9)); }
 }
 
+/* ============ PAGE TRANSITION FADE ============ */
+.page-fade-in {
+  animation: pageFadeIn 320ms var(--ease-expo) both;
+}
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* ============ NORMAL CASE ESCAPE HATCH ============ */
 .normal-case { text-transform: none !important; }
 
