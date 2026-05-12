@@ -7,6 +7,9 @@ import { SplitHeading } from "@/components/site/split-heading";
 import { Glitch } from "@/components/site/glitch";
 import { HeroHudPills, HeroHudGauges } from "@/components/site/hero-hud";
 import { HeroTerminal } from "@/components/site/hero-terminal";
+import { RegionMap } from "@/components/site/region-map";
+import { StatsStrip } from "@/components/site/stats-strip";
+import { SecNum } from "@/components/site/sec-num";
 
 export default function HomePage() {
   return (
@@ -90,9 +93,7 @@ export default function HomePage() {
         <Reveal>
           <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
             <div>
-              <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50">
-                Services · 06
-              </div>
+              <SecNum>02 — Services</SecNum>
               <SplitHeading
                 as="h2"
                 className="font-display text-3xl md:text-4xl mt-3"
@@ -115,52 +116,69 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* WHY DES MOINES TEASER */}
+      {/* REGION + LATENCY */}
       <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-20 md:pb-24">
         <Reveal>
-          <div className="border border-border bg-card/40 backdrop-blur-sm p-6 md:p-12">
-            <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-              <div>
-                <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50">
-                  Why Des Moines
-                </div>
-                <h3 className="font-display text-2xl md:text-3xl mt-3 leading-tight">
-                  Power, climate, fiber.
-                </h3>
+          <SecNum>03 — Region</SecNum>
+          <SplitHeading
+            as="h2"
+            className="font-display text-3xl md:text-4xl mt-3"
+          >
+            Built in Des Moines. Reach the heartland.
+          </SplitHeading>
+          <p className="mt-3 max-w-xl text-sm md:text-base text-foreground/65 leading-relaxed">
+            DSM-01 sits at the center of the Midwest fiber backbone — single-digit
+            milliseconds to every major metro between Chicago and Denver.
+          </p>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <div className="region-wrap mt-10">
+            <RegionMap />
+            <div className="region-aside">
+              <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/40 mb-2">
+                Indicative RTT · [demo]
               </div>
-              <div className="md:col-span-2 grid sm:grid-cols-3 gap-6">
-                <div>
-                  <div className="font-mono text-xs text-[#7CFFA8]">01 / GRID</div>
-                  <p className="mt-2 text-sm text-foreground/70 leading-relaxed">
-                    Among the most reliable power markets in North America, with
-                    growing renewable capacity.
-                  </p>
+              {[
+                { city: "Chicago", rtt: "~8" },
+                { city: "Minneapolis", rtt: "~10" },
+                { city: "Kansas City", rtt: "~6" },
+                { city: "St Louis", rtt: "~9" },
+                { city: "Omaha", rtt: "~5" },
+                { city: "Madison", rtt: "~8" },
+              ].map((row) => (
+                <div key={row.city} className="region-aside-row">
+                  <span className="region-aside-city">{row.city}</span>
+                  <span className="region-aside-rtt">
+                    {row.rtt}
+                    <span className="u">ms</span>
+                  </span>
                 </div>
-                <div>
-                  <div className="font-mono text-xs text-[#7CFFA8]">02 / CLIMATE</div>
-                  <p className="mt-2 text-sm text-foreground/70 leading-relaxed">
-                    Cool winters and dry conditions reduce cooling overhead
-                    year-round.
-                  </p>
-                </div>
-                <div>
-                  <div className="font-mono text-xs text-[#7CFFA8]">03 / FIBER</div>
-                  <p className="mt-2 text-sm text-foreground/70 leading-relaxed">
-                    Sitting on a major Midwest fiber backbone with multiple
-                    tier-1 carriers.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="mt-8">
+              ))}
               <Link
                 href="/about"
-                className="font-mono text-xs uppercase tracking-widest text-[#7CFFA8] hover:underline"
+                className="mt-4 font-mono text-xs uppercase tracking-widest text-[#7CFFA8] hover:underline self-start"
               >
-                Read the case →
+                Why Des Moines →
               </Link>
             </div>
           </div>
+        </Reveal>
+      </section>
+
+      {/* STATS STRIP */}
+      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-20 md:pb-24">
+        <Reveal>
+          <SecNum>04 — Facility</SecNum>
+          <SplitHeading
+            as="h2"
+            className="font-display text-3xl md:text-4xl mt-3 mb-10"
+          >
+            One building. One operator.
+          </SplitHeading>
+        </Reveal>
+        <Reveal delay={120}>
+          <StatsStrip />
         </Reveal>
       </section>
 
