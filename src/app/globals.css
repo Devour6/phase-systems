@@ -479,7 +479,7 @@ body.hover-link #cursor-ring {
 }
 .hud-pill b {
   color: var(--text-1);
-  font-weight: 500;
+  font-weight: 600;
 }
 .hud-pill-dot {
   width: 5px;
