@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SERVICES } from "@/lib/services";
-import { ServiceRow } from "@/components/site/service-row";
+import { ServiceCard } from "@/components/site/service-card";
 import { Reveal } from "@/components/site/reveal";
 import { SplitHeading } from "@/components/site/split-heading";
 import { Glitch } from "@/components/site/glitch";
@@ -107,9 +107,9 @@ export default function HomePage() {
           </div>
         </Reveal>
         <Reveal delay={120}>
-          <div className="border-x border-border/60">
+          <div className="services">
             {SERVICES.map((s, i) => (
-              <ServiceRow key={s.slug} service={s} index={i} />
+              <ServiceCard key={s.slug} service={s} index={i} />
             ))}
           </div>
         </Reveal>
