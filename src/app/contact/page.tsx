@@ -6,6 +6,7 @@ import { Glitch } from "@/components/site/glitch";
 
 export const metadata = {
   title: "Contact",
+  alternates: { canonical: "/contact" },
   description:
     "Talk to Phase Systems sales. Iowa-based humans, same-day response.",
 };

@@ -8,6 +8,7 @@ import { RegionMap } from "@/components/site/region-map";
 
 export const metadata = {
   title: "About",
+  alternates: { canonical: "/about" },
   description:
     "Phase Systems is the data center vertical of Phase, built in Des Moines, Iowa.",
 };

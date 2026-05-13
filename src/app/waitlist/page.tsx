@@ -7,6 +7,7 @@ import { Glitch } from "@/components/site/glitch";
 
 export const metadata = {
   title: "Waitlist",
+  alternates: { canonical: "/waitlist" },
   description:
     "Get on the waitlist for Phase Systems services. Be first when we light up your vertical.",
 };

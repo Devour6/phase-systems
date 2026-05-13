@@ -6,6 +6,7 @@ import { SecNum } from "@/components/site/sec-num";
 
 export const metadata = {
   title: "Services",
+  alternates: { canonical: "/services" },
   description:
     "Six verticals operated from one facility in Des Moines, Iowa. Virtualization, internet, colocation, hardware, cybersecurity, physical security.",
 };

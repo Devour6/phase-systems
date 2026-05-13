@@ -65,6 +65,18 @@ export async function generateMetadata({
   return {
     title: service.title,
     description: service.description,
+    alternates: { canonical: `/services/${slug}` },
+    openGraph: {
+      title: `${service.title} · Phase Systems`,
+      description: service.description,
+      url: `https://phase-systems.vercel.app/services/${slug}`,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${service.title} · Phase Systems`,
+      description: service.description,
+    },
   };
 }
 
