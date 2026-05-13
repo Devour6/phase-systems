@@ -37,8 +37,19 @@ export default function WaitlistPage() {
             </p>
           </Reveal>
 
+          <Reveal delay={460}>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/45">
+              <span className="inline-flex items-center gap-2">
+                <span className="led led-pulse" style={{ width: 4, height: 4 }} />
+                Status · Waitlist Open
+              </span>
+              <span>Verticals · 06</span>
+              <span>Facility · DSM-01</span>
+            </div>
+          </Reveal>
+
           <Reveal delay={520}>
-            <div className="form-surface mt-10 p-6 md:p-8">
+            <div className="form-surface mt-8 p-6 md:p-8">
               <span className="corner-tl" aria-hidden />
               <span className="corner-br" aria-hidden />
               <Suspense fallback={null}>
