@@ -54,8 +54,7 @@ export function LoginForm() {
       <button
         type="submit"
         disabled={loading}
-        className="w-full font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3 hover-elevate disabled:opacity-50"
-        style={{ color: "#7CFFA8" }}
+        className="btn-primary hover-elevate w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {loading ? "Checking…" : "Sign in →"}
       </button>

@@ -158,8 +158,7 @@ export function WaitlistForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full font-mono text-xs uppercase tracking-widest border border-[#7CFFA8] px-5 py-3.5 hover-elevate disabled:opacity-60"
-        style={{ color: "#7CFFA8" }}
+        className="btn-primary hover-elevate w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {status === "submitting" ? "Submitting…" : "Join Waitlist →"}
       </button>
