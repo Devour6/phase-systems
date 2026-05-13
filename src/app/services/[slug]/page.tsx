@@ -37,7 +37,7 @@ const SPECS: Record<string, { label: string; value: string }[]> = {
     { label: "Lead-time", value: "Configurable" },
   ],
   cybersecurity: [
-    { label: "Compliance", value: "SOC 2 target" },
+    { label: "Frameworks", value: "NIST · CIS" },
     { label: "Monitoring", value: "24/7" },
     { label: "Response", value: "Same-team" },
     { label: "Scope", value: "Net + Host" },

@@ -6,7 +6,9 @@
 import { useEffect, useRef } from "react";
 import { shouldReduce } from "@/lib/use-reduce";
 
-const BADGES = ["SOC 2", "PCI DSS", "HIPAA", "ISO 27001"];
+// Truthful: Phase Systems is NOT certified for any of these. Listing the
+// frameworks we design the facility against, not credentials we hold.
+const BADGES = ["NIST CSF", "CIS Controls", "PCI-aware", "HIPAA-aware"];
 
 export function VizCybersecurity() {
   const wrapRef = useRef<HTMLDivElement | null>(null);
@@ -79,7 +81,7 @@ export function VizCybersecurity() {
       </svg>
 
       <div className="cert-meta">
-        <div className="cert-meta-label">// Compliance targets</div>
+        <div className="cert-meta-label">// Designed against</div>
         <div className="cert-grid">
           {BADGES.map((b) => (
             <div key={b} className="cert-badge">

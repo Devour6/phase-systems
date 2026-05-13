@@ -794,14 +794,16 @@ body.hover-link #cursor-ring {
   overflow: hidden;
 }
 .svc-viz {
-  margin-top: auto;
-  padding-top: var(--s-5);
+  margin-top: var(--s-4);
+  flex: 1 1 auto;
+  padding-top: var(--s-4);
   display: flex;
   align-items: stretch;
   justify-content: center;
   position: relative;
   min-height: 200px;
 }
+.svc-viz > * { flex: 1 1 auto; min-width: 0; }
 .svc-cta {
   display: flex;
   align-items: center;
@@ -1057,10 +1059,12 @@ body.hover-link #cursor-ring {
 /* ============ VIZ: CYBERSECURITY RADAR ============ */
 .radar-wrap {
   display: grid;
-  grid-template-columns: minmax(140px, 180px) 1fr;
-  gap: 22px;
+  grid-template-columns: minmax(150px, 200px) 1fr;
+  gap: 24px;
   align-items: center;
+  justify-items: stretch;
   width: 100%;
+  height: 100%;
 }
 @media (max-width: 720px) {
   .radar-wrap { grid-template-columns: 1fr; gap: 16px; }
@@ -1069,8 +1073,9 @@ body.hover-link #cursor-ring {
 .radar-svg {
   width: 100%;
   aspect-ratio: 1;
-  max-width: 180px;
+  max-width: 200px;
   display: block;
+  margin: 0 auto;
 }
 .radar-sweep {
   transform-origin: 50% 50%;
@@ -1101,8 +1106,8 @@ body.hover-link #cursor-ring {
 .cert-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  align-content: center;
+  gap: 8px;
+  align-content: start;
 }
 .cert-badge {
   display: flex;

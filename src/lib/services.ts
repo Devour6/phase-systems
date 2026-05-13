@@ -62,7 +62,7 @@ export const SERVICES: ServiceConfig[] = [
       { title: "Power tiers", body: "Standard 120V/30A through high-density 208V/60A circuits." },
       { title: "Cross-connects", body: "Fiber and copper cross-connects to carriers and customers in our MMR." },
       { title: "Remote hands", body: "On-site engineers available 24/7 for tasks billed by the quarter-hour." },
-      { title: "Compliance-ready", body: "Facility designed against SOC 2 and PCI standards." },
+      { title: "Compliance-ready", body: "Facility designed against industry compliance frameworks. Certifications on the roadmap." },
     ],
     faq: [
       { q: "What's your power redundancy?", a: "2N UPS with N+1 generator backup." },
@@ -102,7 +102,7 @@ export const SERVICES: ServiceConfig[] = [
       { title: "Managed firewall", body: "Tuned per environment, change-controlled, and audited." },
       { title: "24/7 monitoring", body: "SIEM-driven detection with playbooks for common threats." },
       { title: "Incident response", body: "On-call IR team with 1-hour response SLA on critical events." },
-      { title: "Compliance support", body: "Evidence collection and reporting for SOC 2, HIPAA, PCI." },
+      { title: "Compliance support", body: "Evidence collection and reporting to help your audits across common frameworks." },
     ],
     faq: [
       { q: "Do you offer pen testing?", a: "Yes — internal and external network testing on annual or quarterly cadence." },
