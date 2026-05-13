@@ -493,6 +493,10 @@ body.hover-link #cursor-ring {
   background: var(--bg-1);
   text-transform: uppercase;
 }
+@media (max-width: 480px) {
+  .hud-pill { padding: 5px 10px; font-size: 10px; }
+  .hud-strip { gap: 6px; }
+}
 .hud-pill .lbl {
   color: var(--text-3);
   margin-right: 2px;
