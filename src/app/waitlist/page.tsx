@@ -46,6 +46,7 @@ export default function WaitlistPage() {
               </span>
               <span>Verticals · 06</span>
               <span>Facility · DSM-01</span>
+              <span>41.6867°N · 93.5988°W</span>
             </div>
           </Reveal>
 

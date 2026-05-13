@@ -165,6 +165,7 @@ export default async function ServicePage({
                   </span>
                   <span>Status · Waitlist Open</span>
                   <span>Facility · DSM-01</span>
+                  <span>41.6867°N · 93.5988°W</span>
                 </div>
               </Reveal>
               <Reveal delay={520}>

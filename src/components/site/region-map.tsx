@@ -24,6 +24,7 @@ const CITIES: City[] = [
   { name: "Omaha", angle: -160, radius: 22 },
 ];
 
+// Ring labels placed at 225° (lower-left, dead zone with no cities)
 const RINGS = [
   { r: 22, label: "15ms" },
   { r: 38, label: "25ms" },
@@ -38,6 +39,31 @@ function polar(angle: number, radius: number) {
     x: 50 + radius * 0.5 * Math.cos(rad),
     y: 50 + radius * 0.5 * Math.sin(rad),
   };
+}
+
+// Per-city label placement: anchor + dx/dy offset from the node.
+// Hand-tuned so labels don't collide with each other or with ring text.
+function labelPlacement(name: string): {
+  anchor: "start" | "middle" | "end";
+  dx: number;
+  dy: number;
+} {
+  switch (name) {
+    case "Minneapolis":
+      return { anchor: "middle", dx: 0, dy: -2.6 };
+    case "Madison":
+      return { anchor: "start", dx: 2.2, dy: -1 };
+    case "Chicago":
+      return { anchor: "start", dx: 2.2, dy: 0.8 };
+    case "St Louis":
+      return { anchor: "middle", dx: 0, dy: 4 };
+    case "Kansas City":
+      return { anchor: "end", dx: -2.2, dy: 3 };
+    case "Omaha":
+      return { anchor: "end", dx: -2.2, dy: -1 };
+    default:
+      return { anchor: "middle", dx: 0, dy: -2.6 };
+  }
 }
 
 export function RegionMap() {
@@ -55,10 +81,6 @@ export function RegionMap() {
             <stop offset="60%" stopColor="#7CFFA8" stopOpacity="0.02" />
             <stop offset="100%" stopColor="#7CFFA8" stopOpacity="0" />
           </radialGradient>
-          <linearGradient id="rmArc" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#7CFFA8" stopOpacity="0" />
-            <stop offset="100%" stopColor="#7CFFA8" stopOpacity="0.7" />
-          </linearGradient>
         </defs>
 
         {/* Center glow */}
@@ -68,20 +90,36 @@ export function RegionMap() {
         <line x1="50" y1="2" x2="50" y2="98" className="rm-crosshair" />
         <line x1="2" y1="50" x2="98" y2="50" className="rm-crosshair" />
 
-        {/* Latency rings */}
-        {RINGS.map((ring) => (
-          <g key={ring.r}>
-            <circle cx="50" cy="50" r={ring.r * 0.5} className="rm-ring" />
-            <text
-              x="50"
-              y={50 - ring.r * 0.5 - 1}
-              className="rm-ring-label"
-              textAnchor="middle"
-            >
-              {ring.label}
-            </text>
-          </g>
-        ))}
+        {/* Latency rings + labels (labels at 225° / lower-left, no city collision) */}
+        {RINGS.map((ring) => {
+          const r = ring.r * 0.5;
+          // Place label at 225° on each ring, with small inward offset for legibility
+          const labelAngle = (225 * Math.PI) / 180;
+          const lx = 50 + r * Math.cos(labelAngle);
+          const ly = 50 + r * Math.sin(labelAngle);
+          return (
+            <g key={ring.r}>
+              <circle cx="50" cy="50" r={r} className="rm-ring" />
+              {/* Tiny dark backplate so the label doesn't clash with the ring stroke */}
+              <rect
+                x={lx - 3.4}
+                y={ly - 1.6}
+                width="6.8"
+                height="3.2"
+                rx="0.3"
+                className="rm-ring-label-bg"
+              />
+              <text
+                x={lx}
+                y={ly + 0.8}
+                className="rm-ring-label"
+                textAnchor="middle"
+              >
+                {ring.label}
+              </text>
+            </g>
+          );
+        })}
 
         {/* Connection arcs DSM → cities, packets ride them */}
         {CITIES.map((city, i) => {
@@ -115,17 +153,18 @@ export function RegionMap() {
           );
         })}
 
-        {/* City nodes */}
+        {/* City nodes + smart-placed labels */}
         {CITIES.map((city) => {
           const p = polar(city.angle, city.radius);
+          const place = labelPlacement(city.name);
           return (
             <g key={`${city.name}-node`}>
               <circle cx={p.x} cy={p.y} r="1.4" className="rm-city" />
               <text
-                x={p.x}
-                y={p.y - 3}
+                x={p.x + place.dx}
+                y={p.y + place.dy}
                 className="rm-city-label"
-                textAnchor="middle"
+                textAnchor={place.anchor}
               >
                 {city.name.toUpperCase()}
               </text>
@@ -141,7 +180,7 @@ export function RegionMap() {
             DSM-01
           </text>
           <text x="50" y="64" className="rm-dsm-sub" textAnchor="middle">
-            41.69°N · 93.60°W
+            41.6867°N · 93.5988°W
           </text>
         </g>
       </svg>

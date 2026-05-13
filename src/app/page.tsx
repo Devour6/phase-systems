@@ -200,8 +200,8 @@ export default function HomePage() {
             Built in Des Moines. Reach the heartland.
           </SplitHeading>
           <p className="mt-3 max-w-xl text-sm md:text-base text-foreground/65 leading-relaxed">
-            DSM-01 sits at the center of the Midwest fiber backbone — single-digit
-            milliseconds to every major metro between Chicago and Denver.
+            DSM-01 sits at the center of the Midwest fiber backbone — low-latency
+            reach to Chicago, Minneapolis, Kansas City, and the rest of the heartland.
           </p>
         </Reveal>
 
