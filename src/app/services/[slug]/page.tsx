@@ -7,7 +7,7 @@ import { SecNum } from "@/components/site/sec-num";
 import { VIZ_BY_SLUG } from "@/components/site/viz";
 import { Glitch } from "@/components/site/glitch";
 import { Tilt } from "@/components/site/tilt";
-import { ServiceJsonLd } from "@/components/site/json-ld";
+import { ServiceJsonLd, BreadcrumbJsonLd } from "@/components/site/json-ld";
 
 // Per-service indicative spec strips. Numbers are design targets / typical
 // configurations, clearly labeled — not SLA claims.
@@ -102,6 +102,19 @@ export default async function ServicePage({
         title={service.title}
         tagline={service.tagline}
         description={service.description}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Phase Systems", url: "https://phase-systems.vercel.app" },
+          {
+            name: "Services",
+            url: "https://phase-systems.vercel.app/services",
+          },
+          {
+            name: service.title,
+            url: `https://phase-systems.vercel.app/services/${service.slug}`,
+          },
+        ]}
       />
       {/* HERO */}
       <section className="relative overflow-hidden">
