@@ -110,7 +110,8 @@ export function HeroHudGauges() {
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
+    const saveData = window.matchMedia("(prefers-reduced-data: reduce)").matches;
+    if (reduce || saveData) return;
     function tickHud() {
       setCpu((v) => Math.max(18, Math.min(72, v + (Math.random() - 0.5) * 6)));
       setMem((v) => Math.max(40, Math.min(82, v + (Math.random() - 0.5) * 4)));
