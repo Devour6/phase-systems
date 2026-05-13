@@ -15,6 +15,7 @@ const NAV = [
 export function SiteNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   // Close menu on route change
   useEffect(() => {
@@ -32,6 +33,14 @@ export function SiteNav() {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  // Track scroll position for tightened nav
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   function renderLink(item: { href: string; label: string }, mobile = false) {
     const isHash = item.href.includes("#");
@@ -73,10 +82,12 @@ export function SiteNav() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 border-b border-border/60 transition-colors",
+        "sticky top-0 z-40 border-b transition-all duration-300",
         open
-          ? "bg-background"
-          : "backdrop-blur-md bg-background/80"
+          ? "bg-background border-border/60"
+          : scrolled
+          ? "backdrop-blur-md bg-background/95 border-border/80"
+          : "backdrop-blur-md bg-background/70 border-border/40"
       )}
     >
       <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
