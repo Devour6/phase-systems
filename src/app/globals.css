@@ -762,7 +762,9 @@ body.hover-link #cursor-ring {
   color: var(--text-1);
   text-transform: uppercase;
   line-height: 1.1;
+  transition: color var(--dur-base) var(--ease-out);
 }
+.service:hover .svc-name { color: var(--accent); }
 .svc-desc {
   font-size: 13px;
   color: var(--text-2);
