@@ -138,10 +138,61 @@ export default function HomePage() {
         </Reveal>
       </section>
 
+      {/* HOW IT WORKS */}
+      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-20 md:pb-24">
+        <Reveal>
+          <SecNum label="03 — How it works" />
+          <SplitHeading
+            as="h2"
+            className="font-display text-3xl md:text-4xl mt-3"
+          >
+            One operator, top to bottom.
+          </SplitHeading>
+          <p className="mt-3 max-w-xl text-sm md:text-base text-foreground/65 leading-relaxed">
+            No tickets routed through three vendors. No mystery middleware.
+            Phase Systems owns the metal, the network, and the response.
+          </p>
+        </Reveal>
+        <div className="mt-10 grid md:grid-cols-3 gap-4">
+          {[
+            {
+              num: "01",
+              title: "Tell us what you need",
+              body: "Email, contact form, or a call. We'll work out the spec, the SLA, and the timeline together — no procurement gauntlet.",
+            },
+            {
+              num: "02",
+              title: "We rack, cable, light",
+              body: "Hardware sourced, racked, and tested by our team in DSM-01. You get a working endpoint, not a slide deck.",
+            },
+            {
+              num: "03",
+              title: "You scale, we operate",
+              body: "24/7 hands-on response from the same team that built the deployment. Capacity grows with you, one rack at a time.",
+            },
+          ].map((step, i) => (
+            <Reveal key={step.num} delay={i * 80}>
+              <div className="border border-border bg-[var(--bg-1)] p-6 h-full hover-elevate group">
+                <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/45 inline-flex items-center gap-2 group-hover:text-[#7CFFA8] transition-colors">
+                  <span className="led led-pulse" />
+                  / STEP {step.num}
+                </div>
+                <div className="font-display text-lg md:text-xl mt-3 group-hover:text-[#F5F2EC] transition-colors">
+                  {step.title}
+                </div>
+                <p className="text-sm text-foreground/65 mt-3 leading-relaxed">
+                  {step.body}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       {/* REGION + LATENCY */}
       <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-20 md:pb-24">
         <Reveal>
-          <SecNum label="03 — Region" />
+          <SecNum label="04 — Region" />
           <SplitHeading
             as="h2"
             className="font-display text-3xl md:text-4xl mt-3"
@@ -191,7 +242,7 @@ export default function HomePage() {
       {/* STATS STRIP */}
       <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-20 md:pb-24">
         <Reveal>
-          <SecNum label="04 — Facility" />
+          <SecNum label="05 — Facility" />
           <SplitHeading
             as="h2"
             className="font-display text-3xl md:text-4xl mt-3 mb-10"
@@ -209,7 +260,7 @@ export default function HomePage() {
         <Reveal>
           <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
             <div className="md:col-span-7 order-2 md:order-1">
-              <SecNum label="05 — On-site" />
+              <SecNum label="06 — On-site" />
               <SplitHeading
                 as="h3"
                 className="font-display text-2xl md:text-4xl mt-3 leading-tight"
@@ -265,7 +316,7 @@ export default function HomePage() {
             className="pointer-events-none absolute left-1/2 -top-px h-px w-24 -translate-x-1/2"
             style={{ background: "var(--accent)" }}
           />
-          <SecNum label="06 — Get on the list" className="!justify-center inline-block" />
+          <SecNum label="07 — Get on the list" className="!justify-center inline-block" />
           <SplitHeading
             as="h3"
             className="font-display text-3xl md:text-5xl mt-5 leading-tight"
