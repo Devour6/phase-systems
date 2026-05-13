@@ -7,6 +7,7 @@ import { AuroraBackground } from "@/components/site/aurora-background";
 import { BootOverlay } from "@/components/site/boot-overlay";
 import { CustomCursor } from "@/components/site/custom-cursor";
 import { ScrollToTop } from "@/components/site/scroll-to-top";
+import { JsonLd } from "@/components/site/json-ld";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -72,6 +73,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <JsonLd />
+      </head>
       <body
         className={`${audiowide.variable} ${outfit.variable} antialiased relative min-h-screen`}
       >
