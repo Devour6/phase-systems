@@ -168,21 +168,31 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-24 md:pb-32 text-center">
+      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-24 md:pb-32">
         <Reveal>
-          <SplitHeading
-            as="h3"
-            className="font-display text-2xl sm:text-3xl md:text-4xl"
+          <div
+            className="text-center py-14 md:py-20 relative"
+            style={{ borderTop: "1px solid var(--border)" }}
           >
-            We&apos;re lighting up services in waves.
-          </SplitHeading>
-          <div className="mt-8 flex justify-center gap-3 flex-wrap">
-            <Link href="/waitlist" className="btn-primary hover-elevate">
-              Join Waitlist →
-            </Link>
-            <Link href="/services" className="btn-secondary hover-elevate">
-              Browse Services
-            </Link>
+            <span
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 -top-px h-px w-24 -translate-x-1/2"
+              style={{ background: "var(--accent)" }}
+            />
+            <SplitHeading
+              as="h3"
+              className="font-display text-2xl sm:text-3xl md:text-4xl"
+            >
+              We&apos;re lighting up services in waves.
+            </SplitHeading>
+            <div className="mt-8 flex justify-center gap-3 flex-wrap">
+              <Link href="/waitlist" className="btn-primary hover-elevate">
+                Join Waitlist →
+              </Link>
+              <Link href="/services" className="btn-secondary hover-elevate">
+                Browse Services
+              </Link>
+            </div>
           </div>
         </Reveal>
       </section>
