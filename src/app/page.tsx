@@ -146,7 +146,7 @@ export default function HomePage() {
             as="h2"
             className="font-display text-3xl md:text-4xl mt-3"
           >
-            One operator, top to bottom.
+            One team, top to bottom.
           </SplitHeading>
           <p className="mt-3 max-w-xl text-sm md:text-base text-foreground/65 leading-relaxed">
             No tickets routed through three vendors. No mystery middleware.
@@ -247,7 +247,7 @@ export default function HomePage() {
             as="h2"
             className="font-display text-3xl md:text-4xl mt-3 mb-10"
           >
-            One building. One operator.
+            One building. One team.
           </SplitHeading>
         </Reveal>
         <Reveal delay={120}>

@@ -23,7 +23,7 @@ const STATS: StatExt[] = [
   { num: 6, label: "Verticals on roadmap", meta: "PHASE.SYS / 2026" },
   { num: 1, suffix: "GW", label: "Iowa grid headroom", meta: "MISO REGION" },
   { num: 100, suffix: "G", label: "Backbone fabric", meta: "TARGET" },
-  { num: 24, suffix: "/7", label: "On-site operators", meta: "DSM-01" },
+  { num: 24, suffix: "/7", label: "On-site coverage", meta: "DSM-01" },
 ];
 
 function easeOutCubic(t: number) {

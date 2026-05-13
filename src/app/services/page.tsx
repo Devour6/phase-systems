@@ -131,7 +131,7 @@ export default function ServicesIndexPage() {
               // Pick your slice
             </div>
             <h3 className="font-display text-3xl md:text-5xl mt-5 leading-tight max-w-3xl mx-auto">
-              One operator. Every layer.
+              One team. Every layer.
             </h3>
             <p className="mt-6 max-w-xl mx-auto text-foreground/65 leading-relaxed">
               Tell us which vertical you need and when. We&apos;ll line up the

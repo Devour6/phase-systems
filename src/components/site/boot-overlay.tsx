@@ -3,10 +3,8 @@
 import { useEffect, useState } from "react";
 
 // Phase Systems boot screen — full-viewport monospace startup animation.
-// Mounts once on page load, fades after ~1.7s, sets sessionStorage flag so
-// it doesn't replay on client-side route changes within the same session.
-
-const STORAGE_KEY = "phase_boot_done";
+// Fires on every fresh page load (no session cache — it's the front-door
+// signature). Fades after ~2.2s.
 
 export function BootOverlay() {
   const [mounted, setMounted] = useState(false);
@@ -15,18 +13,12 @@ export function BootOverlay() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    // Skip on subsequent navigations in same session
-    if (sessionStorage.getItem(STORAGE_KEY) === "1") {
-      setUnmount(true);
-      return;
-    }
     setMounted(true);
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const dur = reduce ? 400 : 1700;
+    const dur = reduce ? 400 : 2200;
     const fadeT = setTimeout(() => setGone(true), dur);
     const removeT = setTimeout(() => {
       setUnmount(true);
-      sessionStorage.setItem(STORAGE_KEY, "1");
     }, dur + 700);
     return () => {
       clearTimeout(fadeT);
