@@ -84,6 +84,16 @@ export default async function ServicePage({
                   {service.hero}
                 </p>
               </Reveal>
+              <Reveal delay={460}>
+                <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/45">
+                  <span className="inline-flex items-center gap-2">
+                    <span className="led led-pulse" style={{ width: 4, height: 4 }} />
+                    Vertical · {num}
+                  </span>
+                  <span>Status · Waitlist Open</span>
+                  <span>Facility · DSM-01</span>
+                </div>
+              </Reveal>
               <Reveal delay={520}>
                 <div className="mt-9 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
                   <Link
