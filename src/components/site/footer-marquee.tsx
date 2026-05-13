@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 const ITEMS = [
   "FACILITY · DSM-01",
   "STATUS · BUILDING",
+  "WAITLIST · OPEN",
   "POWER · IOWA GRID",
   "FIBER · MIDWEST BACKBONE",
   "COOLING · FREE-AIR ECONOMIZATION",
@@ -17,6 +18,7 @@ const ITEMS = [
   "VERTICALS · 06",
   "TIER · COMING ONLINE",
   "REGION · CENTRAL IOWA",
+  "LAT/LON · 41.69N / 93.60W",
 ];
 
 export function FooterMarquee() {
