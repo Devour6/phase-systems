@@ -1514,7 +1514,26 @@ body.hover-link #cursor-ring {
 .form-surface {
   background: var(--bg-1);
   border: 1px solid var(--border);
+  position: relative;
 }
+.form-surface::before,
+.form-surface::after,
+.form-surface > .corner-tl,
+.form-surface > .corner-br {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--accent);
+  border-style: solid;
+  border-width: 0;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.form-surface::before { top: -1px; left: -1px; border-top-width: 1px; border-left-width: 1px; }
+.form-surface::after  { top: -1px; right: -1px; border-top-width: 1px; border-right-width: 1px; }
+.form-surface > .corner-tl { bottom: -1px; left: -1px; border-bottom-width: 1px; border-left-width: 1px; }
+.form-surface > .corner-br { bottom: -1px; right: -1px; border-bottom-width: 1px; border-right-width: 1px; }
 input, textarea, select {
   background: var(--bg-2);
   border: 1px solid var(--border);

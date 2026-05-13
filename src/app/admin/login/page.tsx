@@ -17,7 +17,9 @@ export default function AdminLoginPage() {
           <p className="mt-4 text-foreground/65 text-sm leading-relaxed">
             Enter the admin password to view waitlist and contact entries.
           </p>
-          <div className="mt-9 border border-border bg-[var(--bg-1)] p-6">
+          <div className="form-surface mt-9 p-6">
+            <span className="corner-tl" aria-hidden />
+            <span className="corner-br" aria-hidden />
             <LoginForm />
           </div>
         </div>
