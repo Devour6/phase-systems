@@ -278,8 +278,8 @@ export default function HomePage() {
               </div>
             </div>
             <div className="md:col-span-5 order-1 md:order-2">
-              <figure className="relative">
-                <div className="crosshair-frame relative border border-border/80 overflow-hidden bg-background">
+              <figure className="relative group">
+                <div className="crosshair-frame relative border border-border/80 overflow-hidden bg-background transition-colors duration-300 group-hover:border-[#7CFFA8]/60">
                   <Image
                     src="/rack.jpg"
                     alt="Phase Systems server rack — Des Moines, Iowa"
@@ -290,6 +290,15 @@ export default function HomePage() {
                   />
                   <span aria-hidden className="ch-bl" />
                   <span aria-hidden className="ch-br" />
+                  {/* subtle scanline overlay */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 opacity-[0.05]"
+                    style={{
+                      backgroundImage:
+                        "repeating-linear-gradient(0deg, rgba(243,238,217,1) 0 1px, transparent 1px 3px)",
+                    }}
+                  />
                 </div>
                 <figcaption className="mt-3 flex items-center justify-between font-mono text-[9.5px] uppercase tracking-[0.22em] text-foreground/45">
                   <span className="inline-flex items-center gap-2">
