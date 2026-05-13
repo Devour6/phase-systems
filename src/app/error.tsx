@@ -42,6 +42,20 @@ export default function GlobalError({
           ref: {error.digest}
         </p>
       )}
+      <div className="mt-8 inline-flex items-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/45 flex-wrap justify-center">
+        <span className="inline-flex items-center gap-2">
+          <span
+            className="inline-block w-1.5 h-1.5 rounded-full"
+            style={{
+              background: "#ff3366",
+              boxShadow: "0 0 6px rgba(255,51,102,0.85)",
+            }}
+          />
+          Status · Server Error
+        </span>
+        <span>Code · HTTP/500</span>
+        <span>Facility · DSM-01</span>
+      </div>
       <div className="mt-9 flex justify-center gap-3 flex-wrap">
         <button
           type="button"

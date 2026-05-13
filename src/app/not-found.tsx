@@ -22,6 +22,20 @@ export default function NotFound() {
           <p className="text-foreground/65 mt-7 max-w-md mx-auto leading-relaxed">
             That page doesn&apos;t exist — or hasn&apos;t been racked yet.
           </p>
+          <div className="mt-8 inline-flex items-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/45 flex-wrap justify-center">
+            <span className="inline-flex items-center gap-2">
+              <span
+                className="inline-block w-1.5 h-1.5 rounded-full"
+                style={{
+                  background: "#ff3366",
+                  boxShadow: "0 0 6px rgba(255,51,102,0.85)",
+                }}
+              />
+              Status · Not Found
+            </span>
+            <span>Code · HTTP/404</span>
+            <span>Facility · DSM-01</span>
+          </div>
           <div className="mt-9 flex justify-center gap-3 flex-wrap">
             <Link href="/" className="btn-primary hover-elevate">
               ← Back home
