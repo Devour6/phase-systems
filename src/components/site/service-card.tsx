@@ -13,7 +13,10 @@ export function ServiceCard({
   const Viz = VIZ_MAP[service.slug];
   return (
     <Link href={`/services/${service.slug}`} className="service group">
-      <div className="svc-num">/ {num} · {service.title}</div>
+      <div className="svc-num inline-flex items-center gap-2">
+        <span className="led led-pulse" />
+        / {num} · {service.tagline}
+      </div>
       <div className="svc-name">{service.title}</div>
       <p className="svc-desc">{service.description}</p>
       <div className="svc-viz">{Viz ? <Viz /> : null}</div>
