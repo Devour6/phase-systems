@@ -90,7 +90,12 @@ export function SiteNav() {
           : "backdrop-blur-md bg-background/70 border-border/40"
       )}
     >
-      <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
+      <div
+        className={cn(
+          "mx-auto flex w-full max-w-6xl items-center justify-between px-4 sm:px-6 transition-[height] duration-300",
+          scrolled ? "h-12" : "h-14"
+        )}
+      >
         <Link href="/" className="flex items-center gap-2.5">
           <Image
             src="/logo-mark-256.png"

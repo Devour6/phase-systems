@@ -27,6 +27,20 @@ export function SiteFooter() {
             Phase Systems is the data center vertical of Phase. Built in Des Moines, Iowa
             for the next generation of compute.
           </p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            <Link
+              href="/waitlist"
+              className="font-mono text-[10px] uppercase tracking-[0.22em] border border-[#7CFFA8]/40 text-[#7CFFA8] px-3 py-1.5 hover:bg-[rgba(124,255,168,0.06)] transition-colors"
+            >
+              Join Waitlist →
+            </Link>
+            <Link
+              href="/contact"
+              className="font-mono text-[10px] uppercase tracking-[0.22em] border border-border text-foreground/70 px-3 py-1.5 hover:text-foreground hover:border-foreground/40 transition-colors"
+            >
+              Contact
+            </Link>
+          </div>
         </div>
         <div>
           <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/45 mb-4">
