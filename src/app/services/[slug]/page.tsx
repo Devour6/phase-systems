@@ -106,13 +106,10 @@ export default async function ServicePage({
             <div className="md:col-span-5">
               <Reveal delay={300}>
                 <Tilt max={3}>
-                  <div className="service-hero-viz relative">
+                  <div className="service-hero-viz crosshair-frame relative">
                     {Viz ? <Viz /> : null}
-                    {/* corner crosshairs */}
-                    <span aria-hidden className="pointer-events-none absolute top-1.5 left-1.5 w-3 h-3 border-t border-l border-[#7CFFA8]/60" />
-                    <span aria-hidden className="pointer-events-none absolute top-1.5 right-1.5 w-3 h-3 border-t border-r border-[#7CFFA8]/60" />
-                    <span aria-hidden className="pointer-events-none absolute bottom-1.5 left-1.5 w-3 h-3 border-b border-l border-[#7CFFA8]/60" />
-                    <span aria-hidden className="pointer-events-none absolute bottom-1.5 right-1.5 w-3 h-3 border-b border-r border-[#7CFFA8]/60" />
+                    <span aria-hidden className="ch-bl" />
+                    <span aria-hidden className="ch-br" />
                   </div>
                 </Tilt>
               </Reveal>
