@@ -12,7 +12,11 @@ export function ServiceCard({
   const num = String(index + 1).padStart(2, "0");
   const Viz = VIZ_MAP[service.slug];
   return (
-    <Link href={`/services/${service.slug}`} className="service group">
+    <Link
+      href={`/services/${service.slug}`}
+      className="service service-in group"
+      style={{ animationDelay: `${100 + index * 80}ms` }}
+    >
       <div className="svc-num inline-flex items-center gap-2">
         <span className="led led-pulse" />
         / {num} · {service.tagline}

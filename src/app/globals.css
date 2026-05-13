@@ -714,6 +714,17 @@ body.hover-link #cursor-ring {
 @media (max-width: 720px) {
   .service { padding: var(--s-5); min-height: 360px; }
 }
+.service-in {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: serviceCardIn 700ms var(--ease-expo) forwards;
+}
+@keyframes serviceCardIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-in { opacity: 1; transform: none; animation: none; }
+}
 .service:hover {
   border-color: var(--accent-glow);
   background: var(--bg-2);
