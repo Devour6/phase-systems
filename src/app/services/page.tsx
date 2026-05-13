@@ -33,6 +33,17 @@ export default function ServicesIndexPage() {
               slice you need — or take the whole rack.
             </p>
           </Reveal>
+          <Reveal delay={500}>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/45">
+              <span className="inline-flex items-center gap-2">
+                <span className="led led-pulse" style={{ width: 4, height: 4 }} />
+                Status · Building
+              </span>
+              <span>Verticals · 06</span>
+              <span>Waitlist · Open</span>
+              <span>Facility · DSM-01</span>
+            </div>
+          </Reveal>
         </div>
       </section>
 
