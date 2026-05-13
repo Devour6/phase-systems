@@ -192,10 +192,10 @@ export default async function ServicePage({
             <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/45">
               ← Previous
             </div>
-            <div className="mt-3 font-display text-lg md:text-2xl group-hover:text-[#7CFFA8] transition-colors">
+            <div className="mt-3 font-display text-base sm:text-lg md:text-2xl leading-tight group-hover:text-[#7CFFA8] transition-colors">
               {prev.title}
             </div>
-            <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/45 mt-1.5">
+            <div className="hidden sm:block font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/45 mt-1.5">
               {prev.tagline}
             </div>
           </Link>
@@ -206,10 +206,10 @@ export default async function ServicePage({
             <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/45">
               Next →
             </div>
-            <div className="mt-3 font-display text-lg md:text-2xl group-hover:text-[#7CFFA8] transition-colors">
+            <div className="mt-3 font-display text-base sm:text-lg md:text-2xl leading-tight group-hover:text-[#7CFFA8] transition-colors">
               {next.title}
             </div>
-            <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/45 mt-1.5">
+            <div className="hidden sm:block font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/45 mt-1.5">
               {next.tagline}
             </div>
           </Link>
