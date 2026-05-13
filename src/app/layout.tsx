@@ -31,15 +31,34 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://phase-systems.vercel.app"),
-  title: "Phase Systems — Built for the next generation of compute",
+  title: {
+    default: "Phase Systems — Built for the next generation of compute",
+    template: "%s · Phase Systems",
+  },
   description:
     "Phase Systems is Phase's data center vertical based in Des Moines, Iowa. Cloud compute, colocation, ISP, hardware, and security services.",
+  alternates: {
+    canonical: "/",
+  },
+  keywords: [
+    "data center",
+    "Des Moines",
+    "Iowa",
+    "colocation",
+    "bare metal",
+    "Phase Systems",
+    "Phase",
+    "cloud compute",
+    "ISP",
+    "Midwest fiber",
+  ],
   openGraph: {
     title: "Phase Systems",
     description: "Built for the next generation of compute. Des Moines, Iowa.",
     url: "https://phase-systems.vercel.app",
     siteName: "Phase Systems",
     type: "website",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
