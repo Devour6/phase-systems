@@ -8,6 +8,47 @@ import { VIZ_BY_SLUG } from "@/components/site/viz";
 import { Glitch } from "@/components/site/glitch";
 import { Tilt } from "@/components/site/tilt";
 
+// Per-service indicative spec strips. Numbers are design targets / typical
+// configurations, clearly labeled — not SLA claims.
+const SPECS: Record<string, { label: string; value: string }[]> = {
+  virtualization: [
+    { label: "Hypervisor", value: "KVM" },
+    { label: "Storage", value: "NVMe" },
+    { label: "Fabric", value: "10G" },
+    { label: "Provisioning", value: "≤ 60s" },
+  ],
+  internet: [
+    { label: "Transit", value: "1G – 100G" },
+    { label: "Routing", value: "BGP / IPv6" },
+    { label: "Upstreams", value: "Multi-homed" },
+    { label: "NOC", value: "Iowa-based" },
+  ],
+  colocation: [
+    { label: "Footprint", value: "1U – Cage" },
+    { label: "Power", value: "Redundant" },
+    { label: "Cooling", value: "N+1" },
+    { label: "Cross-connects", value: "Carrier-rich" },
+  ],
+  hardware: [
+    { label: "Build", value: "Custom" },
+    { label: "Burn-in", value: "72h+" },
+    { label: "QA", value: "On-site" },
+    { label: "Lead-time", value: "Configurable" },
+  ],
+  cybersecurity: [
+    { label: "Compliance", value: "SOC 2 target" },
+    { label: "Monitoring", value: "24/7" },
+    { label: "Response", value: "Same-team" },
+    { label: "Scope", value: "Net + Host" },
+  ],
+  "physical-security": [
+    { label: "Coverage", value: "24/7" },
+    { label: "Access", value: "Multi-factor" },
+    { label: "Cameras", value: "Facility-wide" },
+    { label: "Logs", value: "Audit-grade" },
+  ],
+};
+
 export function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
 }
@@ -158,6 +199,29 @@ export default async function ServicePage({
           ))}
         </div>
       </section>
+
+      {/* SPECS STRIP */}
+      {SPECS[slug] && (
+        <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-20 md:pb-24">
+          <SecNum label="// Specs" className="mb-6" />
+          <div className="border border-border bg-[var(--bg-1)] grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-border/60">
+            {SPECS[slug].map((s) => (
+              <div key={s.label} className="p-5 md:p-6">
+                <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-foreground/45 inline-flex items-center gap-2">
+                  <span className="led led-pulse" />
+                  {s.label}
+                </div>
+                <div className="font-display text-lg md:text-2xl mt-3 text-foreground">
+                  {s.value}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 font-mono text-[9.5px] uppercase tracking-[0.25em] text-foreground/40">
+            // Indicative specs · final config quoted on contact
+          </div>
+        </section>
+      )}
 
       {/* FAQ */}
       <section className="mx-auto w-full max-w-4xl px-4 sm:px-6 pb-20 md:pb-24">
