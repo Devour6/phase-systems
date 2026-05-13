@@ -63,7 +63,7 @@ export async function generateMetadata({
   const service = getService(slug);
   if (!service) return {};
   return {
-    title: `${service.title} — Phase Systems`,
+    title: service.title,
     description: service.description,
   };
 }

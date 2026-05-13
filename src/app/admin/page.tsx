@@ -4,7 +4,7 @@ import { redis } from "@/lib/redis";
 import { LogoutButton } from "./logout-button";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Admin — Phase Systems" };
+export const metadata = { title: "Admin" };
 
 interface WaitlistEntry {
   email: string;

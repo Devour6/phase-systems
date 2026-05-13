@@ -1,6 +1,6 @@
 import { LoginForm } from "./login-form";
 
-export const metadata = { title: "Admin — Phase Systems" };
+export const metadata = { title: "Admin Login" };
 
 export default function AdminLoginPage() {
   return (

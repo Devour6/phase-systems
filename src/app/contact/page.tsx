@@ -5,7 +5,7 @@ import { SecNum } from "@/components/site/sec-num";
 import { Glitch } from "@/components/site/glitch";
 
 export const metadata = {
-  title: "Contact — Phase Systems",
+  title: "Contact",
   description:
     "Talk to Phase Systems sales. Iowa-based humans, same-day response.",
 };

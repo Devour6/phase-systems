@@ -5,7 +5,7 @@ import { SplitHeading } from "@/components/site/split-heading";
 import { SecNum } from "@/components/site/sec-num";
 
 export const metadata = {
-  title: "Services — Phase Systems",
+  title: "Services",
   description:
     "Six verticals operated from one facility in Des Moines, Iowa. Virtualization, internet, colocation, hardware, cybersecurity, physical security.",
 };

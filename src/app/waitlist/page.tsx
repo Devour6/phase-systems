@@ -6,7 +6,7 @@ import { SecNum } from "@/components/site/sec-num";
 import { Glitch } from "@/components/site/glitch";
 
 export const metadata = {
-  title: "Waitlist — Phase Systems",
+  title: "Waitlist",
   description:
     "Get on the waitlist for Phase Systems services. Be first when we light up your vertical.",
 };

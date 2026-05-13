@@ -7,7 +7,7 @@ import { StatsStrip } from "@/components/site/stats-strip";
 import { RegionMap } from "@/components/site/region-map";
 
 export const metadata = {
-  title: "About — Phase Systems",
+  title: "About",
   description:
     "Phase Systems is the data center vertical of Phase, built in Des Moines, Iowa.",
 };
