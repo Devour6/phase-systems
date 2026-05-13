@@ -63,6 +63,17 @@ export default function AboutPage() {
               fiber are built for the workloads of the next decade.
             </p>
           </Reveal>
+          <Reveal delay={600}>
+            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/45">
+              <span className="inline-flex items-center gap-2">
+                <span className="led led-pulse" style={{ width: 4, height: 4 }} />
+                Parent · phase.cc
+              </span>
+              <span>Vertical · Data Center</span>
+              <span>Region · Des Moines, IA</span>
+              <span>41.6867°N · 93.5988°W</span>
+            </div>
+          </Reveal>
         </div>
       </section>
 
