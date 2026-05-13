@@ -770,6 +770,10 @@ body.hover-link #cursor-ring {
   letter-spacing: 0;
   max-width: 420px;
   text-transform: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .svc-viz {
   margin-top: auto;
