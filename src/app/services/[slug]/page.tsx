@@ -72,9 +72,10 @@ export default async function ServicePage({
               </SplitHeading>
               <Reveal delay={300}>
                 <div
-                  className="mt-5 font-mono text-[11px] uppercase tracking-[0.3em]"
+                  className="mt-5 font-mono text-[11px] uppercase tracking-[0.3em] inline-flex items-center gap-2"
                   style={{ color: "#7CFFA8" }}
                 >
+                  <span className="led led-pulse" />
                   {service.tagline}
                 </div>
               </Reveal>
