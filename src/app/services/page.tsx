@@ -71,6 +71,48 @@ export default function ServicesIndexPage() {
         </Reveal>
       </section>
 
+      {/* ROADMAP */}
+      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-20 md:pb-24">
+        <Reveal>
+          <SecNum label="// Rollout" className="mb-3" />
+          <SplitHeading
+            as="h2"
+            className="font-display text-3xl md:text-4xl mt-2"
+          >
+            Lighting up in waves.
+          </SplitHeading>
+          <p className="mt-3 max-w-xl text-sm md:text-base text-foreground/65 leading-relaxed">
+            Verticals roll out as the facility scales. Waitlist position
+            determines onboarding order within each phase.
+          </p>
+        </Reveal>
+        <div className="mt-10 border-t border-border/60">
+          {[
+            { phase: "Phase 1", what: "Colocation · Internet · Hardware", state: "Waitlist open" },
+            { phase: "Phase 2", what: "Virtualization · Cybersecurity", state: "Next wave" },
+            { phase: "Phase 3", what: "Physical Security · Bundled SLAs", state: "Planned" },
+          ].map((row, i) => (
+            <Reveal key={row.phase} delay={i * 80}>
+              <div className="grid grid-cols-12 gap-4 py-5 md:py-6 border-b border-border/60 items-center hover:bg-[rgba(124,255,168,0.025)] transition-colors">
+                <div className="col-span-3 md:col-span-2 font-mono text-[10px] md:text-xs uppercase tracking-[0.3em] text-foreground/45 inline-flex items-center gap-2">
+                  <span className="led led-pulse" />
+                  {row.phase}
+                </div>
+                <div className="col-span-9 md:col-span-7 font-display text-base md:text-lg">
+                  {row.what}
+                </div>
+                <div className="col-span-12 md:col-span-3 font-mono text-[10px] md:text-xs uppercase tracking-[0.22em] text-[#7CFFA8] md:text-right">
+                  {row.state}
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <div className="mt-3 font-mono text-[9.5px] uppercase tracking-[0.25em] text-foreground/40">
+          // Indicative roadmap · subject to facility build pace
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-24 md:pb-32">
         <Reveal>
