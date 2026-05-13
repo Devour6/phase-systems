@@ -1534,6 +1534,29 @@ body.hover-link #cursor-ring {
 .form-surface::after  { top: -1px; right: -1px; border-top-width: 1px; border-right-width: 1px; }
 .form-surface > .corner-tl { bottom: -1px; left: -1px; border-bottom-width: 1px; border-left-width: 1px; }
 .form-surface > .corner-br { bottom: -1px; right: -1px; border-bottom-width: 1px; border-right-width: 1px; }
+
+/* Crosshair-frame utility — same 4-corner mint accent on any bordered element */
+.crosshair-frame {
+  position: relative;
+}
+.crosshair-frame::before,
+.crosshair-frame::after,
+.crosshair-frame > .ch-bl,
+.crosshair-frame > .ch-br {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--accent);
+  border-style: solid;
+  border-width: 0;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.crosshair-frame::before { top: 4px; left: 4px; border-top-width: 1px; border-left-width: 1px; }
+.crosshair-frame::after  { top: 4px; right: 4px; border-top-width: 1px; border-right-width: 1px; }
+.crosshair-frame > .ch-bl { bottom: 4px; left: 4px; border-bottom-width: 1px; border-left-width: 1px; }
+.crosshair-frame > .ch-br { bottom: 4px; right: 4px; border-bottom-width: 1px; border-right-width: 1px; }
 input, textarea, select {
   background: var(--bg-2);
   border: 1px solid var(--border);

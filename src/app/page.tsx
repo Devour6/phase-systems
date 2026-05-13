@@ -228,7 +228,7 @@ export default function HomePage() {
             </div>
             <div className="md:col-span-5 order-1 md:order-2">
               <figure className="relative">
-                <div className="relative border border-border/80 overflow-hidden bg-background">
+                <div className="crosshair-frame relative border border-border/80 overflow-hidden bg-background">
                   <Image
                     src="/rack.jpg"
                     alt="Phase Systems server rack — Des Moines, Iowa"
@@ -237,10 +237,8 @@ export default function HomePage() {
                     sizes="(min-width: 768px) 41vw, 100vw"
                     className="block w-full h-auto"
                   />
-                  <span aria-hidden className="pointer-events-none absolute top-2 left-2 w-3 h-3 border-t border-l border-[#7CFFA8]/70" />
-                  <span aria-hidden className="pointer-events-none absolute top-2 right-2 w-3 h-3 border-t border-r border-[#7CFFA8]/70" />
-                  <span aria-hidden className="pointer-events-none absolute bottom-2 left-2 w-3 h-3 border-b border-l border-[#7CFFA8]/70" />
-                  <span aria-hidden className="pointer-events-none absolute bottom-2 right-2 w-3 h-3 border-b border-r border-[#7CFFA8]/70" />
+                  <span aria-hidden className="ch-bl" />
+                  <span aria-hidden className="ch-br" />
                 </div>
                 <figcaption className="mt-3 flex items-center justify-between font-mono text-[9.5px] uppercase tracking-[0.22em] text-foreground/45">
                   <span className="inline-flex items-center gap-2">
