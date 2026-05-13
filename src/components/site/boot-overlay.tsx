@@ -7,13 +7,13 @@ import { useEffect, useState } from "react";
 // signature). Fades after ~2.2s.
 
 export function BootOverlay() {
-  const [mounted, setMounted] = useState(false);
+  // Start visible on SSR so first paint shows the overlay immediately.
+  // No sessionStorage gate — fires on every fresh page load.
   const [gone, setGone] = useState(false);
   const [unmount, setUnmount] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    setMounted(true);
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const dur = reduce ? 400 : 2200;
     const fadeT = setTimeout(() => setGone(true), dur);
@@ -33,7 +33,6 @@ export function BootOverlay() {
       id="boot"
       aria-hidden
       className={gone ? "gone" : ""}
-      style={{ visibility: mounted ? "visible" : "hidden" }}
     >
       <div className="boot-inner">
         <div className="boot-line" style={{ animationDelay: "0.0s" }}>
