@@ -16,20 +16,20 @@ interface City {
 }
 
 const CITIES: City[] = [
-  { name: "Minneapolis", angle: -70, radius: 38 },
-  { name: "Madison", angle: -25, radius: 32 },
-  { name: "Chicago", angle: 15, radius: 38 },
-  { name: "St Louis", angle: 75, radius: 32 },
-  { name: "Kansas City", angle: 135, radius: 25 },
-  { name: "Omaha", angle: -160, radius: 22 },
+  { name: "Minneapolis", angle: -70, radius: 48 },
+  { name: "Madison", angle: -25, radius: 42 },
+  { name: "Chicago", angle: 15, radius: 50 },
+  { name: "St Louis", angle: 75, radius: 42 },
+  { name: "Kansas City", angle: 150, radius: 40 },
+  { name: "Omaha", angle: -170, radius: 32 },
 ];
 
-// Ring labels placed at 225° (lower-left, dead zone with no cities)
+// Each ring carries its own label angle so labels don't pile up on one line.
 const RINGS = [
-  { r: 22, label: "15ms" },
-  { r: 38, label: "25ms" },
-  { r: 60, label: "50ms" },
-  { r: 82, label: "100ms" },
+  { r: 22, label: "15ms", labelAngle: 225 },
+  { r: 38, label: "25ms", labelAngle: 200 },
+  { r: 60, label: "50ms", labelAngle: 245 },
+  { r: 82, label: "100ms", labelAngle: 215 },
 ];
 
 function polar(angle: number, radius: number) {
@@ -42,7 +42,8 @@ function polar(angle: number, radius: number) {
 }
 
 // Per-city label placement: anchor + dx/dy offset from the node.
-// Hand-tuned so labels don't collide with each other or with ring text.
+// Hand-tuned so labels don't collide with each other, with ring text, or with
+// the center DSM-01 cluster.
 function labelPlacement(name: string): {
   anchor: "start" | "middle" | "end";
   dx: number;
@@ -58,9 +59,9 @@ function labelPlacement(name: string): {
     case "St Louis":
       return { anchor: "middle", dx: 0, dy: 4 };
     case "Kansas City":
-      return { anchor: "end", dx: -2.2, dy: 3 };
+      return { anchor: "end", dx: -2.2, dy: 3.5 };
     case "Omaha":
-      return { anchor: "end", dx: -2.2, dy: -1 };
+      return { anchor: "end", dx: -2.2, dy: -1.5 };
     default:
       return { anchor: "middle", dx: 0, dy: -2.6 };
   }
@@ -90,17 +91,15 @@ export function RegionMap() {
         <line x1="50" y1="2" x2="50" y2="98" className="rm-crosshair" />
         <line x1="2" y1="50" x2="98" y2="50" className="rm-crosshair" />
 
-        {/* Latency rings + labels (labels at 225° / lower-left, no city collision) */}
+        {/* Latency rings + labels (each ring at its own angle so they don't stack) */}
         {RINGS.map((ring) => {
           const r = ring.r * 0.5;
-          // Place label at 225° on each ring, with small inward offset for legibility
-          const labelAngle = (225 * Math.PI) / 180;
+          const labelAngle = (ring.labelAngle * Math.PI) / 180;
           const lx = 50 + r * Math.cos(labelAngle);
           const ly = 50 + r * Math.sin(labelAngle);
           return (
             <g key={ring.r}>
               <circle cx="50" cy="50" r={r} className="rm-ring" />
-              {/* Tiny dark backplate so the label doesn't clash with the ring stroke */}
               <rect
                 x={lx - 3.4}
                 y={ly - 1.6}
