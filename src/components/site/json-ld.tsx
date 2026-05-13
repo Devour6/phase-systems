@@ -1,6 +1,37 @@
 // Organization + WebSite JSON-LD for search engine context.
 // Server component — emits a single <script type="application/ld+json">.
 
+export function ServiceJsonLd({
+  slug,
+  title,
+  tagline,
+  description,
+}: {
+  slug: string;
+  title: string;
+  tagline: string;
+  description: string;
+}) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `https://phase-systems.vercel.app/services/${slug}#service`,
+    name: title,
+    alternateName: tagline,
+    description,
+    url: `https://phase-systems.vercel.app/services/${slug}`,
+    provider: { "@id": "https://phase-systems.vercel.app/#org" },
+    areaServed: { "@type": "Country", name: "United States" },
+  };
+  return (
+    <script
+      type="application/ld+json"
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
 export function JsonLd() {
   const data = {
     "@context": "https://schema.org",
