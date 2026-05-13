@@ -1652,6 +1652,53 @@ input::placeholder, textarea::placeholder {
   letter-spacing: 0.16em;
 }
 
+/* ============ SCROLL-TO-TOP BUTTON ============ */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity var(--dur-base) var(--ease-out),
+              transform var(--dur-base) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              background var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+}
+.scroll-top-btn[data-visible="1"] {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.scroll-top-btn:hover {
+  border-color: var(--accent);
+  background: var(--bg-2);
+  color: var(--text-1);
+}
+.scroll-top-arrow {
+  font-family: var(--font-sans);
+  color: var(--accent);
+  font-weight: 600;
+}
+@media (max-width: 640px) {
+  .scroll-top-btn { bottom: 16px; right: 16px; padding: 8px 12px; font-size: 9px; }
+  .scroll-top-label { display: none; }
+}
+
 /* ============ PAGE TRANSITION FADE ============ */
 .page-fade-in {
   animation: pageFadeIn 320ms var(--ease-expo) both;

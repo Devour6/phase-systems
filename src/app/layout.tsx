@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { AuroraBackground } from "@/components/site/aurora-background";
 import { BootOverlay } from "@/components/site/boot-overlay";
 import { CustomCursor } from "@/components/site/custom-cursor";
+import { ScrollToTop } from "@/components/site/scroll-to-top";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -64,6 +65,7 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <SiteFooter />
           </div>
+          <ScrollToTop />
         </TooltipProvider>
       </body>
     </html>
