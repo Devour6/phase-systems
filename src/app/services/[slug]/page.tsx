@@ -49,7 +49,7 @@ export default async function ServicePage({
         <div className="relative z-[2] mx-auto w-full max-w-6xl px-4 sm:px-6 pt-10 md:pt-16 pb-16 md:pb-24">
           <Reveal>
             <Link
-              href="/#services"
+              href="/services"
               className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50 hover:text-[#7CFFA8]"
             >
               ← All services

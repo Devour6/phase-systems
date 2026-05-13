@@ -26,7 +26,7 @@ export default function NotFound() {
             <Link href="/" className="btn-primary hover-elevate">
               ← Back home
             </Link>
-            <Link href="/#services" className="btn-secondary hover-elevate">
+            <Link href="/services" className="btn-secondary hover-elevate">
               Browse Services
             </Link>
           </div>

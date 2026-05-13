@@ -180,7 +180,7 @@ export default function AboutPage() {
             <Link href="/waitlist" className="btn-primary hover-elevate">
               Join Waitlist →
             </Link>
-            <Link href="/#services" className="btn-secondary hover-elevate">
+            <Link href="/services" className="btn-secondary hover-elevate">
               Browse Services
             </Link>
           </div>
