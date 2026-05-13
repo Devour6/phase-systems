@@ -59,6 +59,41 @@ export default function ServicesIndexPage() {
           </div>
         </Reveal>
       </section>
+
+      {/* FINAL CTA */}
+      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-24 md:pb-32">
+        <Reveal>
+          <div
+            className="text-center py-14 md:py-20 relative"
+            style={{ borderTop: "1px solid var(--border)" }}
+          >
+            <span
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 -top-px h-px w-24 -translate-x-1/2"
+              style={{ background: "var(--accent)" }}
+            />
+            <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50 inline-flex items-center gap-2">
+              <span className="led led-pulse" />
+              // Pick your slice
+            </div>
+            <h3 className="font-display text-3xl md:text-5xl mt-5 leading-tight max-w-3xl mx-auto">
+              One operator. Every layer.
+            </h3>
+            <p className="mt-6 max-w-xl mx-auto text-foreground/65 leading-relaxed">
+              Tell us which vertical you need and when. We&apos;ll line up the
+              metal.
+            </p>
+            <div className="mt-8 flex justify-center gap-3 flex-wrap">
+              <a href="/waitlist" className="btn-primary hover-elevate">
+                Join the Waitlist →
+              </a>
+              <a href="/contact" className="btn-secondary hover-elevate">
+                Talk to Sales
+              </a>
+            </div>
+          </div>
+        </Reveal>
+      </section>
     </div>
   );
 }
