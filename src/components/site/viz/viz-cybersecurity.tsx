@@ -4,6 +4,7 @@
 // Badges are clearly labeled as targets — Phase Systems is NOT yet certified.
 
 import { useEffect, useRef } from "react";
+import { shouldReduce } from "@/lib/use-reduce";
 
 const BADGES = ["SOC 2", "PCI DSS", "HIPAA", "ISO 27001"];
 
@@ -13,11 +14,8 @@ export function VizCybersecurity() {
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
-    const reduce = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
     const badges = el.querySelectorAll<HTMLElement>(".cert-badge");
-    if (reduce) {
+    if (shouldReduce()) {
       badges.forEach((b) => b.classList.add("in"));
       return;
     }

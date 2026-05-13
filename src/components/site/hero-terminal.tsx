@@ -86,7 +86,9 @@ export function HeroTerminal() {
     const term = termRef.current;
     if (!term) return;
     const signal = { aborted: false };
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduce =
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      window.matchMedia("(prefers-reduced-data: reduce)").matches;
     let sIdx = 0;
     let timer: ReturnType<typeof setTimeout> | undefined;
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { shouldReduce } from "@/lib/use-reduce";
 
 // Circular bandwidth gauge — animated stroke-dashoffset
 // for the arc fill, big mono number in center.
@@ -9,8 +10,7 @@ export function VizInternet() {
   const [pct, setPct] = useState(72);
 
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
+    if (shouldReduce()) return;
     const id = setInterval(() => {
       setPct((p) => Math.max(58, Math.min(92, p + (Math.random() - 0.5) * 6)));
     }, 1400);

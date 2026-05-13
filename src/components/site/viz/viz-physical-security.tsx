@@ -4,6 +4,7 @@
 // with scanline + status LED + zone label.
 
 import { useEffect, useState } from "react";
+import { shouldReduce } from "@/lib/use-reduce";
 
 const CAMS = [
   { id: "CAM-01", zone: "ENTRY-A" },
@@ -21,8 +22,7 @@ export function VizPhysicalSecurity() {
   const [scanIdx, setScanIdx] = useState(0);
 
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
+    if (shouldReduce()) return;
     const id = setInterval(() => {
       setScanIdx((i) => (i + 1) % CAMS.length);
     }, 1100);

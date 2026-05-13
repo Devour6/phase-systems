@@ -5,6 +5,7 @@
 // power draw bars. All values clearly DEMO.
 
 import { useEffect, useState } from "react";
+import { shouldReduce } from "@/lib/use-reduce";
 
 interface Unit {
   type: "switch" | "server" | "blade" | "gap" | "pdu";
@@ -30,8 +31,7 @@ export function VizColocation() {
   const [power, setPower] = useState(52.4);
 
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
+    if (shouldReduce()) return;
     const id = setInterval(() => {
       setTemp((t) => Math.max(66, Math.min(72, t + (Math.random() - 0.5) * 1.2)));
       setPower((p) =>

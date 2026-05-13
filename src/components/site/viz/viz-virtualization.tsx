@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { shouldReduce } from "@/lib/use-reduce";
 
 // Hexagonal cluster — 12 hexes arranged in honeycomb.
 // Some are active (mint outline + LED) representing live VMs,
@@ -44,8 +45,7 @@ export function VizVirtualization() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
+    if (shouldReduce()) return;
     const id = setInterval(() => {
       const active = HEXES.map((h, i) => (h.active ? i : -1)).filter((i) => i >= 0);
       const pick = active[Math.floor(Math.random() * active.length)];
