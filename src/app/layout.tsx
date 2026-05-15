@@ -5,7 +5,6 @@ import { SiteNav } from "@/components/site/site-nav";
 import { SiteFooter } from "@/components/site/site-footer";
 import { AuroraBackground } from "@/components/site/aurora-background";
 import { BootOverlay } from "@/components/site/boot-overlay";
-import { CustomCursor } from "@/components/site/custom-cursor";
 import { ScrollToTop } from "@/components/site/scroll-to-top";
 import { JsonLd } from "@/components/site/json-ld";
 import "./globals.css";
@@ -80,7 +79,6 @@ export default function RootLayout({
         className={`${audiowide.variable} ${outfit.variable} antialiased relative min-h-screen`}
       >
         <BootOverlay />
-        <CustomCursor />
         <AuroraBackground />
         <TooltipProvider>
           <div className="relative z-10 flex min-h-screen flex-col">

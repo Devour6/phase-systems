@@ -371,65 +371,11 @@ button:focus-visible {
   to { width: 100%; }
 }
 
-/* ============ CUSTOM CURSOR ============ */
-#cursor-dot,
-#cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-100px, -100px);
-  will-change: transform;
-  display: none;
-}
-body.custom-cursor-on {
-  cursor: none;
-}
-body.custom-cursor-on #cursor-dot,
-body.custom-cursor-on #cursor-ring {
-  display: block;
-}
-body.custom-cursor-on a,
-body.custom-cursor-on button,
-body.custom-cursor-on [role="button"],
-body.custom-cursor-on input,
-body.custom-cursor-on textarea,
-body.custom-cursor-on select,
-body.custom-cursor-on .service {
-  cursor: none;
-}
-#cursor-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
-  border-radius: 50% !important;
-  box-shadow: 0 0 8px var(--accent);
-}
-#cursor-ring {
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--accent);
-  border-radius: 50% !important;
-  opacity: 0.7;
-  transition:
-    width var(--dur-fast) var(--ease-out),
-    height var(--dur-fast) var(--ease-out),
-    background var(--dur-fast) var(--ease-out),
-    opacity var(--dur-fast) var(--ease-out);
-}
-body.hover-link #cursor-ring {
-  width: 56px;
-  height: 56px;
-  background: var(--accent-dim);
-}
-@media (hover: none) {
-  body.custom-cursor-on { cursor: auto; }
-  #cursor-dot, #cursor-ring { display: none !important; }
-}
+/* ============ CURSOR ============ */
+/* Custom cursor removed — using native system cursor for a calmer feel. */
 
-/* The led / dot / ring shapes should keep their radius */
-.led, #cursor-dot, #cursor-ring {
+/* LEDs keep their circular shape */
+.led {
   border-radius: 50% !important;
 }
 
