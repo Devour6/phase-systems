@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { AuroraBackground } from "@/components/site/aurora-background";
 import { BootOverlay } from "@/components/site/boot-overlay";
 import { ScrollToTop } from "@/components/site/scroll-to-top";
+import { HeroSpotlight } from "@/components/site/hero-spotlight";
 import { JsonLd } from "@/components/site/json-ld";
 import "./globals.css";
 
@@ -79,6 +80,7 @@ export default function RootLayout({
         className={`${audiowide.variable} ${outfit.variable} antialiased relative min-h-screen`}
       >
         <BootOverlay />
+        <HeroSpotlight />
         <AuroraBackground />
         <TooltipProvider>
           <div className="relative z-10 flex min-h-screen flex-col">
